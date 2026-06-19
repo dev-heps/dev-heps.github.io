@@ -100,7 +100,7 @@ export default function Home() {
 
       {/* ═══ HEADER ═══ */}
       <header className="sticky top-0 z-50 bg-bg/80 backdrop-blur-md px-2 pt-2">
-        <div className="mx-auto flex h-12 max-w-3xl items-center justify-between gap-4 border-x border-edge px-4">
+        <div className="mx-auto flex h-12 max-w-3xl items-center justify-between gap-4 px-4">
           {/* Nav */}
           <nav className="flex items-center gap-5">
             <Link href="/" className="font-mono text-sm font-medium text-fg">Portfolio</Link>
@@ -114,34 +114,16 @@ export default function Home() {
       <main className="overflow-x-hidden px-2">
         <div className="mx-auto max-w-3xl">
 
-          {/* ═══ COVER ═══ */}
-          <div className="panel cover-pattern aspect-[3/1] flex items-center justify-center select-none">
-            <span className="font-mono text-4xl font-bold tracking-widest text-fg/20">DW</span>
-          </div>
-
-          {/* ═══ PROFILE BAR ═══ */}
-          <div className="flex border-x border-edge">
-            {/* Avatar area */}
-            <div className="shrink-0 border-r border-edge p-1">
-              <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-[#f4f4f5] border-2 border-edge flex items-center justify-center overflow-hidden">
-                <span className="text-4xl font-bold text-muted/40 select-none">DW</span>
-              </div>
+          {/* ═══ PROFILE SECTION ═══ */}
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 py-12 px-4">
+            <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-full bg-black/5 flex items-center justify-center overflow-hidden shrink-0">
+              <span className="text-4xl font-bold text-muted/40 select-none">DW</span>
             </div>
-            {/* Name + title */}
-            <div className="flex flex-1 flex-col">
-              <div className="flex-1 flex items-end pl-4 pb-1">
-              </div>
-              <div className="border-t border-edge">
-                <h1 className="flex items-center gap-2 pl-4 text-2xl sm:text-3xl font-semibold">Dongwoo Lee</h1>
-                <div className="h-10 border-t border-edge flex items-center pl-4">
-                  <p className="font-mono text-sm text-muted">Student</p>
-                </div>
-              </div>
+            <div className="flex flex-col justify-center sm:pt-4 text-center sm:text-left">
+              <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Dongwoo Lee</h1>
+              <p className="font-mono text-lg text-muted mt-2">Student</p>
             </div>
           </div>
-
-          {/* ─── Hatch ─── */}
-          <div className="hatch-separator" />
 
           {/* ═══ OVERVIEW ═══ */}
           <section className="panel">
