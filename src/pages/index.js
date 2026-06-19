@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 
 /* ── Languages ── */
 const LANGUAGES = [
@@ -102,7 +103,7 @@ export default function Home() {
         <div className="mx-auto flex h-12 max-w-3xl items-center justify-between gap-4 border-x border-edge px-4">
           {/* Nav */}
           <nav className="flex items-center gap-5">
-            <a href="/" className="font-mono text-sm font-medium text-fg">Portfolio</a>
+            <Link href="/" className="font-mono text-sm font-medium text-fg">Portfolio</Link>
             <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Blog</a>
             <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Research</a>
             <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Math Discussion</a>
