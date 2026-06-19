@@ -1,47 +1,43 @@
-# Next.Js Website Tutorial: Create a Stunning Portfolio Website with Nextjs, Tailwind CSS and Framer-motion🌟
+# Dongwoo Lee - Personal Portfolio
 
-![GitHub stars](https://img.shields.io/github/stars/codebucks27/Next.js-Developer-Portfolio-Starter-Code?style=social&logo=ApacheSpark&label=Stars)&nbsp;&nbsp;
-![GitHub forks](https://img.shields.io/github/forks/codebucks27/Next.js-Developer-Portfolio-Starter-Code?style=social&logo=KashFlow&maxAge=3600)&nbsp;&nbsp;
-![Github Followers](https://img.shields.io/github/followers/codebucks27.svg?style=social&label=Follow)&nbsp;&nbsp;<br />
+Welcome to the personal portfolio repository of **Dongwoo Lee**.
 
-This repository contains starter code for Portfolio website created using NextJs. <br />
+This repository contains the source code for my digital portfolio, built with Next.js and Tailwind CSS. It highlights my academic and professional work across various disciplines, including Digital Healthcare, Mathematical Biology, and Quantum Computing.
 
-For Demo and Final Code checkout following link👇: <br />
-[Nextjs Portfolio Website](https://devdreaming.com//videos/nextjs-tutorial-build-portfolio-tailwind-css-framer-motion#code-links) <br />
+## 🚀 Live Site
+[https://dev-heps.github.io](https://dev-heps.github.io)
 
-If you want to learn how to create it please follow below tutorial👇: <br />
-https://youtu.be/Yw7yWHigGKI <br />
-[![YouTube Video Views](https://img.shields.io/youtube/views/Yw7yWHigGKI?style=social)](https://youtu.be/Yw7yWHigGKI)<br />
+## 🧑‍🔬 About Me
+I am a student and researcher based in South Korea. My mission is to translate complex biological systems into mathematical frameworks, and explore their solutions through computation to drive real-world impact.
 
----
-✨ Checkout my brand new Saas application -> [AI Headshot Generator](https://www.smartheadshots.ai)
+**Core Interests:**
+- **Digital Healthcare**: Analyzing EHR time-series data and biosignals (ECG/EEG).
+- **Mathematical Biology**: Modeling physiological phenomena (ODE/PDE) and PK/PD.
+- **Quantum Computing**: Variational Quantum Eigensolver (VQE) and Quantum Machine Learning.
 
----
+## 🛠️ Tech Stack
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Deployment**: GitHub Pages (via GitHub Actions)
+- **Languages**: C/C++, Python, Julia, R, MATLAB, Lean 4
 
-### Images of The Portfolio Website:
+## ⚙️ Running Locally
 
-![Nextjs Portfolio Website](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/home-light-desktop.png)
-![Nextjs Portfolio Website Dark Mode](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/home-dark-desktop.png)
-![Next.js Portfolio Website](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/about-light-desktop.png)
-![Next js Portfolio Website](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/projects-dark-desktop.png)
-![Portfolio Website In Next.js](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/articles-light-desktop.png)
-![Responsive Portfolio Website In Nextjs](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/about-light-mobile.png)
-![Responsive Portfolio Website In Next js](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/projects-light-mobile.png)
-![Mobile Responsive Portfolio Website In Next.js](https://github.com/codebucks27/Next.js-Developer-Portfolio-Starter-Code/blob/main/website%20images/articles-light-mobile.png)
+First, clone the repository and install the dependencies:
 
+```bash
+git clone https://github.com/dev-heps/dev-heps.github.io.git
+cd dev-heps.github.io
+npm install
+```
 
-### Resources Used in This Project
+Then, run the development server:
 
-- Profile image in the home page created by using https://www.midjourney.com/ tool.
-- Profile image in the about page by [Albert Dera](https://unsplash.com/@albertdera?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) 
-on [Unsplash](https://unsplash.com/photos/ILip77SbmOE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
-- Fonts from https://fonts.google.com/ <br />
-- Icons from https://iconify.design/ <br />
-- LightBulb Svg from https://lukaszadam.com/illustrations <br />
+```bash
+npm run dev
+```
 
-### External Libraries used in this project:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- [framer-motion](https://www.framer.com/motion/) <br />
-- [Tailwind css](https://tailwindcss.com/) <br />
-
-
+## 📄 License
+© 2026 Dongwoo Lee. All rights reserved.
