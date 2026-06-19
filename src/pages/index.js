@@ -170,8 +170,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ─── Hatch ─── */}
-          <div className="hatch-separator" />
+          <div className="h-8" />
 
           {/* ═══ ABOUT ═══ */}
           <section className="panel" id="about">
@@ -188,8 +187,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ─── Hatch ─── */}
-          <div className="hatch-separator" />
+          <div className="h-8" />
 
           {/* ═══ STACK ═══ */}
           <section className="panel" id="stack">
@@ -224,8 +222,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ─── Hatch ─── */}
-          <div className="hatch-separator" />
+          <div className="h-8" />
 
           {/* ═══ SELECTED WORK ═══ */}
           <section className="panel" id="work">
@@ -248,8 +245,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ─── Hatch ─── */}
-          <div className="hatch-separator" />
+          <div className="h-8" />
 
           {/* ═══ FOOTER ═══ */}
           <footer className="panel">
