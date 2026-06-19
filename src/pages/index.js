@@ -147,8 +147,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* ─── Hatch ─── */}
-          <div className="hatch-separator" />
+          <div className="h-8" />
 
           {/* ═══ SOCIAL LINKS ═══ */}
           <section className="panel">
