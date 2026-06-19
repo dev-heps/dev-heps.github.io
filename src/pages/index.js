@@ -93,8 +93,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Dongwoo Lee – Student</title>
-        <meta name="description" content="Dongwoo Lee — Student interested in Digital Healthcare, Mathematical Biology, and Quantum Computing based in South Korea." />
+        <title>Dongwoo Lee – Undergraduate Researcher</title>
+        <meta name="description" content="Dongwoo Lee — Undergraduate Researcher interested in Digital Healthcare, Mathematical Biology, and Quantum Computing based in South Korea." />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
       </Head>
 
@@ -121,7 +121,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-center sm:pt-4 text-center sm:text-left">
               <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">Dongwoo Lee</h1>
-              <p className="font-mono text-lg text-muted mt-2">Student</p>
+              <p className="font-mono text-lg text-muted mt-2">Undergraduate Researcher</p>
             </div>
           </div>
 
