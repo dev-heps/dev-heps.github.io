@@ -28,24 +28,7 @@ const SOCIALS = [
   { name: 'Instagram', handle: '@dongwoolee', href: 'https://instagram.com', img: 'https://www.svgrepo.com/show/452229/instagram-1.svg' },
 ]
 
-/* ── Projects ── */
-const PROJECTS = [
-  {
-    title: 'Physiological System Simulator',
-    tag: 'Mathematical Biology',
-    desc: 'Developed a Julia/Python-based ODE physiological simulator for understanding complex biological dynamics and PK/PD modeling.',
-  },
-  {
-    title: 'Quantum Molecular Simulation',
-    tag: 'Quantum Computing',
-    desc: 'Built a VQE-based simulation to compute protein-ligand binding energies, exploring the potential of quantum machine learning.',
-  },
-  {
-    title: 'Clinical Prediction Engine',
-    tag: 'Digital Healthcare',
-    desc: 'Created a predictive model using EHR time-series data to forecast patient readmission rates and support clinical decisions.',
-  },
-]
+
 
 /* ── SVG Icons (inline, 16×16) ── */
 const Icons = {
@@ -222,28 +205,7 @@ export default function Home() {
             </div>
           </section>
 
-          <div className="h-8" />
 
-          {/* ═══ SELECTED WORK ═══ */}
-          <section className="panel" id="work">
-            <div className="panel-header">
-              <h2>Selected Work</h2>
-            </div>
-            <div className="panel-body space-y-4">
-              {PROJECTS.map((proj, idx) => (
-                <div key={idx} className="project-card">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="space-y-2">
-                      <h3 className="text-base font-semibold text-fg">{proj.title}</h3>
-                      <span className="inline-block font-mono text-xs px-2 py-0.5 rounded bg-black/5 border border-black/5 text-muted">{proj.tag}</span>
-                    </div>
-                    <span className="text-muted shrink-0 mt-1">{Icons.arrow}</span>
-                  </div>
-                  <p className="font-mono text-sm text-muted leading-relaxed mt-3">{proj.desc}</p>
-                </div>
-              ))}
-            </div>
-          </section>
 
           <div className="h-8" />
 
