@@ -104,9 +104,9 @@ export default function Home() {
           {/* Nav */}
           <nav className="flex items-center gap-5">
             <Link href="/" className="font-mono text-sm font-medium text-fg">Portfolio</Link>
-            <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Blog</a>
             <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Research</a>
-            <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Math Discussion</a>
+            <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Formalization</a>
+            <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Logs</a>
           </nav>
         </div>
       </header>
