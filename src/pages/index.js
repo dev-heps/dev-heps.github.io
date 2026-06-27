@@ -210,13 +210,8 @@ export default function Home() {
 
           {/* ═══ FOOTER ═══ */}
           <footer className="panel">
-            <div className="panel-body flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-muted">
+            <div className="panel-body flex justify-center text-xs font-mono text-muted">
               <p>© 2026 Dongwoo Lee. All rights reserved.</p>
-              <div className="flex gap-6">
-                <a href="#" className="hover:text-fg transition-colors">RSS</a>
-                <a href="#" className="hover:text-fg transition-colors">GitHub</a>
-                <a href="#" className="hover:text-fg transition-colors">LinkedIn</a>
-              </div>
             </div>
           </footer>
 
