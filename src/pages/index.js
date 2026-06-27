@@ -87,9 +87,8 @@ export default function Home() {
           {/* Nav */}
           <nav className="flex items-center gap-5">
             <Link href="/" className="font-mono text-sm font-medium text-fg">Portfolio</Link>
-            <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Studies</a>
-            <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Formalization</a>
-            <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Logs</a>
+            <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Diary</a>
+            <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Reviews</a>
           </nav>
         </div>
       </header>
@@ -162,10 +161,10 @@ export default function Home() {
             </div>
             <div className="panel-body">
               <ul className="about-list">
-                <li><strong>Digital Healthcare:</strong> Analyzing EHR time-series data and biosignals (ECG/EEG) to build clinical decision support systems.</li>
-                <li><strong>Mathematical Biology:</strong> Modeling physiological phenomena using ODE/PDE frameworks and simulating Pharmacokinetics/Pharmacodynamics (PK/PD).</li>
-                <li><strong>Quantum Computing:</strong> Exploring Variational Quantum Eigensolver (VQE) algorithms and Quantum Machine Learning for molecular-level simulations.</li>
-                <li><strong>Mission:</strong> Translating complex biological systems into mathematical frameworks, and exploring their solutions through computation to drive real-world impact.</li>
+                <li><strong>Interests:</strong> Digital Healthcare, Mathematical Biology, and Quantum Computing.</li>
+                <li><strong>Portfolio:</strong> Documenting my personal projects and research experiences.</li>
+                <li><strong>Diary & Reviews:</strong> Archiving my daily life, thoughts, and book reviews.</li>
+                <li><strong>Mission:</strong> Building computational tools to solve complex real-world problems.</li>
               </ul>
             </div>
           </section>
