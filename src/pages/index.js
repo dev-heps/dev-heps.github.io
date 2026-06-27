@@ -23,9 +23,30 @@ const TOOLS = [
 /* ── Social links ── */
 const SOCIALS = [
   { name: 'LinkedIn', handle: '@dongwoolee', href: 'https://www.linkedin.com/in/dongwoo-lee-158957408', icon: 'devicon-linkedin-plain colored' },
-  { name: 'GitHub', handle: '@dongwoolee', href: 'https://github.com', icon: 'devicon-github-original' },
+  { name: 'GitHub', handle: '@dev-heps', href: 'https://github.com/dev-heps', icon: 'devicon-github-original' },
   { name: 'YouTube', handle: '@DongwooLee', href: 'https://www.youtube.com/@DongwooLee-ti2kv', img: 'https://www.svgrepo.com/show/475700/youtube-color.svg' },
   { name: 'Instagram', handle: '@dongwoolee', href: 'https://instagram.com', img: 'https://www.svgrepo.com/show/452229/instagram-1.svg' },
+]
+
+const ARCHIVES = [
+  {
+    name: 'Research Notes',
+    href: 'https://dev-heps.github.io/research-notes/',
+    repo: 'https://github.com/dev-heps/research-notes',
+    description: 'Paper notes, research ideas, and experiment logs.',
+  },
+  {
+    name: 'Math Archive',
+    href: 'https://dev-heps.github.io/math-archive/',
+    repo: 'https://github.com/dev-heps/math-archive',
+    description: 'Math notes, equations, studies, and formalization records.',
+  },
+  {
+    name: 'Projects',
+    href: 'https://dev-heps.github.io/projects/',
+    repo: 'https://github.com/dev-heps/projects',
+    description: 'Project write-ups with source, demo, and maintenance links.',
+  },
 ]
 
 
@@ -87,8 +108,9 @@ export default function Home() {
           {/* Nav */}
           <nav className="flex items-center gap-5">
             <Link href="/" className="font-mono text-sm font-medium text-fg">Portfolio</Link>
-            <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Diary</a>
-            <a href="#" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Reviews</a>
+            <a href="https://dev-heps.github.io/research-notes/" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Research</a>
+            <a href="https://dev-heps.github.io/math-archive/" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Math</a>
+            <a href="https://dev-heps.github.io/projects/" className="font-mono text-sm font-medium text-muted hover:text-fg transition-colors">Projects</a>
           </nav>
         </div>
       </header>
@@ -155,6 +177,30 @@ export default function Home() {
           <div className="h-8" />
 
           {/* ═══ ABOUT ═══ */}
+          <section className="panel" id="archives">
+            <div className="panel-header">
+              <h2>Archives</h2>
+            </div>
+            <div className="panel-body grid gap-3">
+              {ARCHIVES.map((archive) => (
+                <article key={archive.name} className="project-card">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <h3 className="text-base font-semibold text-fg">{archive.name}</h3>
+                      <p className="mt-2 text-sm text-muted">{archive.description}</p>
+                    </div>
+                    <div className="flex shrink-0 gap-4 font-mono text-xs text-muted">
+                      <a href={archive.href} className="hover:text-fg transition-colors">Site</a>
+                      <a href={archive.repo} target="_blank" rel="noopener noreferrer" className="hover:text-fg transition-colors">Repo</a>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <div className="h-8" />
+
           <section className="panel" id="about">
             <div className="panel-header">
               <h2>About</h2>
