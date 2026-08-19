@@ -1,7 +1,20 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: light;
+  --color-bg: #ffffff;
+  --color-fg: #09090b;
+  --color-muted: #71717a;
+  --color-edge: rgba(0, 0, 0, 0.08);
+  --color-border: rgba(0, 0, 0, 0.15);
+  --color-card: rgba(0, 0, 0, 0.02);
+  --color-card-hover: rgba(0, 0, 0, 0.04);
+  --color-accent: #3b82f6;
+  --bg: #ffffff;
+  --fg: #09090b;
+}
+
 @theme {
-  /* ── Core palette (Light) ── */
   --color-bg: #ffffff;
   --color-fg: #09090b;
   --color-muted: #71717a;
@@ -11,7 +24,6 @@
   --color-card-hover: rgba(0, 0, 0, 0.04);
   --color-accent: #3b82f6;
 
-  /* ── Typography ── */
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-mono: var(--font-mono), 'IBM Plex Mono', ui-monospace, monospace;
 }
@@ -19,11 +31,12 @@
 /* ── Base ── */
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 html, body {
-  background-color: var(--color-bg);
-  color: var(--color-fg);
+  background-color: #ffffff !important;
+  color: #09090b !important;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -243,7 +256,7 @@ html, body {
   top: 0;
   z-index: 50;
   padding: 0.5rem 0.5rem 0;
-  background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
 }
 

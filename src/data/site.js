@@ -1,58 +1,55 @@
+const isDev = typeof process !== 'undefined' && process.env.NODE_ENV === 'development';
+
+export const URLS = {
+  portfolio: isDev ? 'http://localhost:3000/' : 'https://dev-heps.github.io/',
+  research: isDev ? 'http://localhost:3003/' : 'https://dev-heps.github.io/research-notes/',
+  math: isDev ? 'http://localhost:3001/math-archive/' : 'https://dev-heps.github.io/math-archive/',
+  projects: isDev ? 'http://localhost:3002/' : 'https://dev-heps.github.io/projects/',
+};
+
 export const SITE = {
   name: 'Dongwoo Lee',
-  title: 'Dongwoo Lee - Portfolio',
+  title: 'Dongwoo Lee - Portfolio & Academic Archive',
   description:
     'Dongwoo Lee is an undergraduate researcher interested in digital healthcare, mathematical biology, and quantum computing.',
   email: 'hepsdata@yonsei.ac.kr',
   location: 'Dongtan, South Korea',
   github: 'https://github.com/dev-heps',
-  portfolio: 'https://dev-heps.github.io/',
+  portfolio: URLS.portfolio,
 }
 
 export const NAV_ITEMS = [
   { label: 'Portfolio', href: '/', key: 'portfolio' },
   { label: 'About', href: '/about', key: 'about' },
-  { label: 'Research', href: 'https://dev-heps.github.io/research-notes/', key: 'research', external: true },
-  { label: 'Math', href: 'https://dev-heps.github.io/math-archive/', key: 'math', external: true },
-  { label: 'Projects', href: 'https://dev-heps.github.io/projects/', key: 'projects', external: true },
-  { label: 'Notes', href: '/notes', key: 'notes' },
-  { label: 'Reviews', href: '/reviews', key: 'reviews' },
-  { label: 'Diary', href: '/diary', key: 'diary' },
+  { label: 'Research', href: URLS.research, key: 'research', external: true },
+  { label: 'Math', href: URLS.math, key: 'math', external: true },
+  { label: 'Projects', href: URLS.projects, key: 'projects', external: true },
+  { label: 'Logs', href: '/logs', key: 'logs' },
 ]
 
 export const ARCHIVES = [
   {
     name: 'Research Notes',
-    href: 'https://dev-heps.github.io/research-notes/',
+    href: URLS.research,
     repo: 'https://github.com/dev-heps/research-notes',
-    description: 'Paper notes, research ideas, and experiment logs.',
+    description: 'Literature reviews, paper summaries, research questions, and experiment logs.',
   },
   {
     name: 'Math Archive',
-    href: 'https://dev-heps.github.io/math-archive/',
+    href: URLS.math,
     repo: 'https://github.com/dev-heps/math-archive',
-    description: 'Math notes, equations, studies, and formalization records.',
+    description: 'Mathematics studies, lecture notes, Lean 4 formalizations, and biological modeling.',
   },
   {
     name: 'Projects',
-    href: 'https://dev-heps.github.io/projects/',
+    href: URLS.projects,
     repo: 'https://github.com/dev-heps/projects',
-    description: 'Project write-ups with source, demo, and maintenance links.',
+    description: 'Maintained index of tools, software, demos, and source repositories.',
   },
   {
-    name: 'Notes',
-    href: '/notes',
-    description: 'Short technical notes and unfinished knowledge fragments.',
-  },
-  {
-    name: 'Reviews',
-    href: '/reviews',
-    description: 'Book, paper, lecture, and tool reviews.',
-  },
-  {
-    name: 'Diary',
-    href: '/diary',
-    description: 'Personal logs, study process notes, and reflective writing.',
+    name: 'Study & Dev Logs',
+    href: '/logs',
+    description: 'Learning process logs, quick technical notes, and research reflections.',
   },
 ]
 
