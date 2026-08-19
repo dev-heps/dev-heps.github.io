@@ -5,25 +5,29 @@ export default function AboutPage() {
     <SectionPage
       active="about"
       title="About"
-      description="A concise profile for background, contact, research interests, and site structure."
+      description="Undergraduate researcher focusing on computational sciences, mathematical biology, and quantum computing."
       items={[
         {
-          status: 'profile',
-          title: 'Background',
-          description: 'Undergraduate researcher based in South Korea, focused on computational approaches to scientific problems.',
+          status: 'Profile',
+          title: 'Academic Background',
+          description: 'Undergraduate researcher based in South Korea, exploring the intersections of rigorous mathematics, digital healthcare, and quantum algorithms.',
         },
         {
-          status: 'focus',
-          title: 'Research Interests',
-          description: 'Digital healthcare, mathematical biology, quantum computing, and formal reasoning tools.',
+          status: 'Community',
+          title: '수학의 즐거움 (Enjoying Math)',
+          description: 'Active participant across multiple study cohorts: 기초부터 대학원 수학(7기), 일변수 미적분학(2기), 증명 기초(3기), 양자컴퓨팅 수학, 직장인·문과생 수학(4.5기 발췌반).',
         },
         {
-          status: 'contact',
-          title: 'Contact',
-          description: 'Use the email and social links on the portfolio home page for contact and profiles.',
+          status: 'Research Focus',
+          title: 'Interests & Vision',
+          description: 'Developing computational tools and formal models for complex real-world biological systems and quantum information processing.',
+        },
+        {
+          status: 'Contact',
+          title: 'Communication & Profiles',
+          description: 'Reach out via email or connect through GitHub for collaborative research and study inquiries.',
         },
       ]}
     />
   )
 }
-
