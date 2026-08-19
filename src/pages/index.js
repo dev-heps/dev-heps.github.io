@@ -1,195 +1,137 @@
 import Link from 'next/link'
-import SiteLayout, { Footer } from '@/components/SiteLayout'
+import SiteLayout from '@/components/SiteLayout'
 import { ARCHIVES, LANGUAGES, SITE, SOCIALS, TOOLS } from '@/data/site'
 
-const Icons = {
-  book: (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-      <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5z" />
-    </svg>
-  ),
-  pin: (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
-      <circle cx="12" cy="10" r="3" />
-    </svg>
-  ),
-  mail: (
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
-      <rect x="2" y="4" width="20" height="16" rx="2" />
-    </svg>
-  ),
-  arrowUpRight: (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M7 7h10v10" />
-      <path d="M7 17 17 7" />
-    </svg>
-  ),
-}
-
-function ArchiveLink({ archive }) {
-  const siteLink = archive.href.startsWith('/') ? (
-    <Link href={archive.href} className="hover:text-fg transition-colors">
-      Site
-    </Link>
-  ) : (
-    <a href={archive.href} className="hover:text-fg transition-colors">
-      Site
-    </a>
-  )
-
+export default function HomePage() {
   return (
-    <article className="project-card h-full">
-      <div>
-        <h3 className="text-base font-semibold text-fg">{archive.name}</h3>
-        <p className="mt-2 text-sm text-muted">{archive.description}</p>
-      </div>
-      <div className="mt-5 flex gap-4 font-mono text-xs text-muted">
-        {siteLink}
-        {archive.repo && (
-          <a href={archive.repo} target="_blank" rel="noopener noreferrer" className="hover:text-fg transition-colors">
-            Repo
-          </a>
-        )}
-      </div>
-    </article>
-  )
-}
-
-export default function Home() {
-  return (
-    <SiteLayout active="portfolio">
-      <section className="profile-section">
-        <div className="profile-mark" aria-hidden="true">DW</div>
-        <div className="profile-copy">
-          <p className="page-eyebrow">Portfolio</p>
-          <h1>{SITE.name}</h1>
-          <p>Undergraduate Researcher</p>
-        </div>
-      </section>
-
-      <section className="panel">
-        <div className="panel-body space-y-3">
-          <div className="info-row">
-            <div className="info-icon">{Icons.book}</div>
-            <p>Digital Healthcare / Mathematical Biology / Quantum Computing</p>
-          </div>
-          <div className="grid gap-x-12 gap-y-3 sm:grid-cols-2">
-            <div className="info-row">
-              <div className="info-icon">{Icons.pin}</div>
-              <p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Dongtan+Station" target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
-                  {SITE.location}
-                </a>
-              </p>
-            </div>
-            <div className="info-row">
-              <div className="info-icon">{Icons.mail}</div>
-              <p>
-                <a href={`mailto:${SITE.email}`} className="underline-offset-4 hover:underline">
-                  {SITE.email}
-                </a>
-              </p>
+    <SiteLayout>
+      {/* Hero Profile Section */}
+      <section className="mb-14 pb-10 border-b border-zinc-200">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="max-w-2xl">
+            <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+              Undergraduate Researcher
+            </p>
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 mb-4">
+              {SITE.name}
+            </h1>
+            <p className="text-lg text-zinc-600 leading-relaxed">
+              {SITE.description}
+            </p>
+            <div className="mt-6 flex flex-wrap items-center gap-4 font-mono text-xs text-zinc-500">
+              <span className="flex items-center gap-1.5 bg-zinc-50 px-3 py-1.5 rounded-full border border-zinc-200">
+                <span>📍</span> {SITE.location}
+              </span>
+              <a 
+                href={`mailto:${SITE.email}`}
+                className="flex items-center gap-1.5 bg-zinc-50 hover:bg-zinc-100 transition-colors px-3 py-1.5 rounded-full border border-zinc-200 text-zinc-700"
+              >
+                <span>✉️</span> {SITE.email}
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="h-8" />
+      {/* 4 Pillars Knowledge & Research Archives */}
+      <section className="mb-16">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold text-zinc-900">Knowledge & Research Archives</h2>
+          <span className="font-mono text-xs text-zinc-400">4 Active Hubs</span>
+        </div>
 
-      <section className="panel">
-        <h2 className="sr-only">Social Links</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2">
-          {SOCIALS.map((social, index) => (
+        <div className="math-grid">
+          {ARCHIVES.map((arch) => {
+            const isExt = !arch.href.startsWith('/')
+            const linkProps = isExt ? { target: '_blank', rel: 'noopener noreferrer' } : {}
+            
+            return (
+              <Link 
+                key={arch.name} 
+                href={arch.href} 
+                className="math-card group"
+                {...linkProps}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="math-card-eyebrow mb-0">{arch.name}</span>
+                  <span className="text-zinc-300 group-hover:text-zinc-900 group-hover:translate-x-0.5 transition-all text-sm font-mono">↗</span>
+                </div>
+                <span className="math-card-title">{arch.name}</span>
+                <span className="math-card-desc flex-1">{arch.description}</span>
+                {arch.repo && (
+                  <span className="mt-4 pt-3 border-t border-zinc-100 font-mono text-xs text-zinc-400 group-hover:text-zinc-600 transition-colors">
+                    Source: GitHub ↗
+                  </span>
+                )}
+              </Link>
+            )
+          })}
+        </div>
+      </section>
+
+      {/* Technical Stack & Scientific Tools */}
+      <section className="mb-16">
+        <h2 className="text-2xl font-bold text-zinc-900 mb-6">Languages & Scientific Tools</h2>
+        
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-3 mb-6">
+          {LANGUAGES.map((lang) => (
+            <div 
+              key={lang.name} 
+              className="flex flex-col items-center justify-center p-3 rounded-lg border border-zinc-200 bg-zinc-50/50 hover:bg-zinc-50 transition-colors"
+            >
+              {lang.icon ? (
+                <i className={`${lang.icon} text-2xl mb-1.5`} />
+              ) : lang.img ? (
+                <img src={lang.img} alt={lang.name} className="w-6 h-6 mb-1.5 object-contain" />
+              ) : null}
+              <span className="font-mono text-xs font-medium text-zinc-700">{lang.name}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {TOOLS.map((tool) => (
+            <div 
+              key={tool.name} 
+              className="flex items-center gap-3 p-3 rounded-lg border border-zinc-200 bg-zinc-50/50"
+            >
+              {tool.icon ? (
+                <i className={`${tool.icon} text-xl`} />
+              ) : null}
+              <span className="font-mono text-xs font-semibold text-zinc-800">{tool.name}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Social & Profiles */}
+      <section className="mb-8">
+        <h2 className="text-2xl font-bold text-zinc-900 mb-6">Profiles & Social</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+          {SOCIALS.map((soc) => (
             <a
-              key={social.name}
-              href={social.href}
+              key={soc.name}
+              href={soc.href}
               target="_blank"
               rel="noopener noreferrer"
-              className={`social-link ${index < SOCIALS.length - 1 ? 'border-b border-edge sm:border-b-0' : ''} ${index % 2 === 0 ? 'sm:border-r sm:border-edge' : ''}`}
+              className="flex items-center justify-between p-3.5 rounded-lg border border-zinc-200 bg-zinc-50/50 hover:bg-zinc-100 transition-colors group"
             >
-              <div className="social-icon">
-                {social.icon && <i className={`${social.icon} text-2xl`} aria-hidden="true" />}
-                {social.img && <img src={social.img} alt="" width="28" height="28" className="object-contain" />}
+              <div className="flex items-center gap-2.5">
+                {soc.icon ? (
+                  <i className={`${soc.icon} text-lg text-zinc-700`} />
+                ) : soc.img ? (
+                  <img src={soc.img} alt={soc.name} className="w-4 h-4 object-contain" />
+                ) : null}
+                <div>
+                  <div className="font-semibold text-xs text-zinc-900">{soc.name}</div>
+                  <div className="font-mono text-[10px] text-zinc-400">{soc.handle}</div>
+                </div>
               </div>
-              <div className="flex-1 min-w-0">
-                <h3 className="font-medium text-fg text-sm">{social.name}</h3>
-                <p className="text-xs text-muted truncate">{social.handle}</p>
-              </div>
-              <span className="text-muted shrink-0">{Icons.arrowUpRight}</span>
+              <span className="text-zinc-300 group-hover:text-zinc-700 transition-colors font-mono text-xs">↗</span>
             </a>
           ))}
         </div>
       </section>
-
-      <div className="h-8" />
-
-      <section className="panel" id="sections">
-        <div className="panel-header">
-          <h2>Sections &amp; Archives</h2>
-        </div>
-        <div className="panel-body grid gap-3 sm:grid-cols-2">
-          {ARCHIVES.map((archive) => (
-            <ArchiveLink key={archive.name} archive={archive} />
-          ))}
-        </div>
-      </section>
-
-      <div className="h-8" />
-
-      <section className="panel" id="about">
-        <div className="panel-header">
-          <h2>About</h2>
-        </div>
-        <div className="panel-body">
-          <ul className="about-list">
-            <li><strong>Interests:</strong> Digital healthcare, mathematical biology, and quantum computing.</li>
-            <li><strong>Portfolio:</strong> A hub for projects, research notes, math writing, and personal records.</li>
-            <li><strong>Writing:</strong> Notes, reviews, and diary entries are separated so each section has a clear role.</li>
-            <li><strong>Mission:</strong> Build computational tools for complex real-world problems.</li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="h-8" />
-
-      <section className="panel" id="stack">
-        <div className="panel-header">
-          <h2>Stack</h2>
-        </div>
-        <div className="panel-body space-y-8">
-          <div>
-            <h3 className="font-mono text-sm font-semibold text-fg mb-4">Languages</h3>
-            <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-8 gap-3">
-              {LANGUAGES.map((skill) => (
-                <div key={skill.name} className="stack-item">
-                  {skill.icon && <i className={skill.icon} aria-hidden="true" />}
-                  {skill.img && <img src={skill.img} alt="" />}
-                  <span>{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className="font-mono text-sm font-semibold text-fg mb-4">Tools &amp; Frameworks</h3>
-            <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-8 gap-3">
-              {TOOLS.map((skill) => (
-                <div key={skill.name} className="stack-item">
-                  {skill.icon && <i className={skill.icon} aria-hidden="true" />}
-                  {skill.img && <img src={skill.img} alt="" />}
-                  <span>{skill.name}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="h-8" />
-      <Footer />
-      <div className="h-12" />
     </SiteLayout>
   )
 }
