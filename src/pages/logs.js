@@ -38,6 +38,7 @@ export default function LogsPage() {
           description: 'Qiskit 환경 구성, Python/Node 스크립트 빌드 자동화, KaTeX/MDX 수식 렌더링 팁.',
         },
       ]}
+      placeholder="새 로그는 스터디·실험 진행에 따라 추가됩니다."
     />
   )
 }

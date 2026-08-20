@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import SiteLayout, { Footer, PageHero } from '@/components/SiteLayout'
 
-export default function SectionPage({ active, title, description, items = [] }) {
+export default function SectionPage({ active, title, description, items = [], placeholder = null }) {
   return (
     <SiteLayout active={active} title={`${title} - Dongwoo Lee`} description={description}>
       <PageHero eyebrow="Portfolio section" title={title} description={description} />
@@ -25,7 +25,7 @@ export default function SectionPage({ active, title, description, items = [] }) 
 
       <section className="panel">
         <div className="panel-body flex flex-col gap-3 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>This section is ready for future entries.</p>
+          {placeholder && <p>{placeholder}</p>}
           <Link href="/" className="font-mono text-xs text-fg hover:underline underline-offset-4">
             Back to Portfolio
           </Link>
