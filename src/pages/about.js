@@ -5,7 +5,7 @@ export default function AboutPage() {
     <SectionPage
       active="about"
       title="About"
-      description="Undergraduate researcher focusing on computational sciences, mathematical biology, and quantum computing."
+      description="Undergraduate researcher focusing on digital healthcare, mathematics, and quantum computing."
       items={[
         {
           status: 'Profile',

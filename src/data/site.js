@@ -11,7 +11,7 @@ export const SITE = {
   name: 'Dongwoo Lee',
   title: 'Dongwoo Lee - Portfolio & Academic Archive',
   description:
-    'Dongwoo Lee is an undergraduate researcher interested in digital healthcare, mathematical biology, and quantum computing.',
+    'Dongwoo Lee is an undergraduate researcher interested in digital healthcare, mathematics, and quantum computing.',
   email: 'hepsdata@gmail.com',
   location: 'Dongtan, South Korea',
   github: 'https://github.com/dev-heps',

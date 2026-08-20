@@ -75,7 +75,7 @@ export default function Home() {
         <div className="panel-body space-y-3">
           <div className="info-row">
             <div className="info-icon">{Icons.book}</div>
-            <p>Digital Healthcare / Mathematical Biology / Quantum Computing</p>
+            <p>Digital Healthcare / Mathematics / Quantum Computing</p>
           </div>
           <div className="grid gap-x-12 gap-y-3 sm:grid-cols-2">
             <div className="info-row">
@@ -146,7 +146,7 @@ export default function Home() {
         </div>
         <div className="panel-body">
           <ul className="about-list">
-            <li><strong>Interests:</strong> Digital healthcare, mathematical biology, and quantum computing.</li>
+            <li><strong>Interests:</strong> Digital Healthcare, Mathematics, and Quantum Computing.</li>
             <li><strong>Portfolio:</strong> A hub for projects, research notes, math writing, and personal records.</li>
             <li><strong>Writing:</strong> Notes, reviews, and diary entries are separated so each section has a clear role.</li>
             <li><strong>Mission:</strong> Build computational tools for complex real-world problems.</li>
