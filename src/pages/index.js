@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import SiteLayout, { Footer } from '@/components/SiteLayout'
 import { ARCHIVES, LANGUAGES, SITE, SOCIALS, TOOLS } from '@/data/site'
 
@@ -112,7 +113,7 @@ export default function Home() {
             >
               <div className="social-icon">
                 {social.icon && <i className={`${social.icon} text-2xl`} aria-hidden="true" />}
-                {social.img && <img src={social.img} alt="" width="28" height="28" className="object-contain" />}
+                {social.img && <Image src={social.img} alt={social.name} width={28} height={28} className="object-contain" unoptimized />}
               </div>
               <div className="flex-1 min-w-0">
                 <h3 className="font-medium text-fg text-sm">{social.name}</h3>
@@ -166,7 +167,7 @@ export default function Home() {
               {LANGUAGES.map((skill) => (
                 <div key={skill.name} className="stack-item">
                   {skill.icon && <i className={skill.icon} aria-hidden="true" />}
-                  {skill.img && <img src={skill.img} alt="" />}
+                  {skill.img && <Image src={skill.img} alt={skill.name} width={48} height={48} unoptimized />}
                   <span>{skill.name}</span>
                 </div>
               ))}
@@ -178,7 +179,7 @@ export default function Home() {
               {TOOLS.map((skill) => (
                 <div key={skill.name} className="stack-item">
                   {skill.icon && <i className={skill.icon} aria-hidden="true" />}
-                  {skill.img && <img src={skill.img} alt="" />}
+                  {skill.img && <Image src={skill.img} alt={skill.name} width={48} height={48} unoptimized />}
                   <span>{skill.name}</span>
                 </div>
               ))}
