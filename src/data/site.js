@@ -12,7 +12,7 @@ export const SITE = {
   title: 'Dongwoo Lee - Portfolio & Academic Archive',
   description:
     'Dongwoo Lee is an undergraduate researcher interested in digital healthcare, mathematical biology, and quantum computing.',
-  email: 'hepsdata@yonsei.ac.kr',
+  email: 'hepsdata@gmail.com',
   location: 'Dongtan, South Korea',
   github: 'https://github.com/dev-heps',
   portfolio: URLS.portfolio,
