@@ -58,13 +58,13 @@ export const SOCIALS = [
     name: 'LinkedIn',
     handle: '@dongwoolee',
     href: 'https://www.linkedin.com/in/dongwoo-lee-158957408',
-    icon: 'devicon-linkedin-plain colored',
+    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-plain.svg',
   },
   {
     name: 'GitHub',
     handle: '@dev-heps',
     href: 'https://github.com/dev-heps',
-    icon: 'devicon-github-original',
+    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
   },
   {
     name: 'YouTube',
@@ -81,18 +81,18 @@ export const SOCIALS = [
 ]
 
 export const LANGUAGES = [
-  { name: 'C', icon: 'devicon-c-plain colored' },
-  { name: 'C++', icon: 'devicon-cplusplus-plain colored' },
+  { name: 'C', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg' },
+  { name: 'C++', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg' },
   { name: 'Lean 4', img: '/lean.svg' },
   { name: 'Python', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
   { name: 'Julia', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/julia/julia-original.svg' },
-  { name: 'R', icon: 'devicon-r-plain colored' },
+  { name: 'R', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/r/r-original.svg' },
   { name: 'MATLAB', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matlab/matlab-original.svg' },
 ]
 
 export const TOOLS = [
-  { name: 'PyTorch', icon: 'devicon-pytorch-original colored' },
-  { name: 'TensorFlow', icon: 'devicon-tensorflow-original colored' },
-  { name: 'Docker', icon: 'devicon-docker-plain colored' },
-  { name: 'LaTeX', icon: 'devicon-latex-original' },
+  { name: 'PyTorch', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg' },
+  { name: 'TensorFlow', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg' },
+  { name: 'Docker', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
+  { name: 'LaTeX', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/latex/latex-original.svg' },
 ]

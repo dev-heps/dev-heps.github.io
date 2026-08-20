@@ -26,7 +26,7 @@ export default function SiteLayout({ active = 'portfolio', title = SITE.title, d
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v6.0.0/devicon.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
       </Head>
 
       <header className="site-header">

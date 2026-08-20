@@ -175,6 +175,8 @@ html, body {
 .stack-item div {
   width: 3rem;
   height: 3rem;
+  padding: 0.35rem;
+  object-fit: contain;
   display: flex;
   align-items: center;
   justify-content: center;
