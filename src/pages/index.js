@@ -136,8 +136,7 @@ export default function Home() {
             <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-8 gap-3">
               {LANGUAGES.map((skill) => (
                 <div key={skill.name} className="stack-item">
-                  {skill.icon && <i className={skill.icon} aria-hidden="true" />}
-                  {skill.img && <Image src={skill.img} alt={skill.name} width={48} height={48} unoptimized />}
+                  {skill.img && <Image src={skill.img} alt={skill.name} width={64} height={64} unoptimized />}
                   <span>{skill.name}</span>
                 </div>
               ))}
@@ -148,8 +147,7 @@ export default function Home() {
             <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-8 gap-3">
               {TOOLS.map((skill) => (
                 <div key={skill.name} className="stack-item">
-                  {skill.icon && <i className={skill.icon} aria-hidden="true" />}
-                  {skill.img && <Image src={skill.img} alt={skill.name} width={48} height={48} unoptimized />}
+                  {skill.img && <Image src={skill.img} alt={skill.name} width={64} height={64} unoptimized />}
                   <span>{skill.name}</span>
                 </div>
               ))}
