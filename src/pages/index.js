@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import SiteLayout, { Footer } from '@/components/SiteLayout'
-import { ARCHIVES, LANGUAGES, SITE, SOCIALS, TOOLS } from '@/data/site'
+import { LANGUAGES, SITE, SOCIALS, TOOLS } from '@/data/site'
 import ProfileHeroCanvas from '@/components/ProfileHeroCanvas'
 
 const Icons = {
@@ -31,34 +31,7 @@ const Icons = {
   ),
 }
 
-function ArchiveLink({ archive }) {
-  const siteLink = archive.href.startsWith('/') ? (
-    <Link href={archive.href} className="hover:text-fg transition-colors">
-      Site
-    </Link>
-  ) : (
-    <a href={archive.href} className="hover:text-fg transition-colors">
-      Site
-    </a>
-  )
 
-  return (
-    <article className="project-card h-full">
-      <div>
-        <h3 className="text-base font-semibold text-fg">{archive.name}</h3>
-        <p className="mt-2 text-sm text-muted">{archive.description}</p>
-      </div>
-      <div className="mt-5 flex gap-4 font-mono text-xs text-muted">
-        {siteLink}
-        {archive.repo && (
-          <a href={archive.repo} target="_blank" rel="noopener noreferrer" className="hover:text-fg transition-colors">
-            Repo
-          </a>
-        )}
-      </div>
-    </article>
-  )
-}
 
 export default function Home() {
   return (
@@ -130,30 +103,21 @@ export default function Home() {
 
       <div className="h-8" />
 
-      <section className="panel" id="sections">
-        <div className="panel-header">
-          <h2>Sections &amp; Archives</h2>
-        </div>
-        <div className="panel-body grid gap-3 sm:grid-cols-2">
-          {ARCHIVES.map((archive) => (
-            <ArchiveLink key={archive.name} archive={archive} />
-          ))}
-        </div>
-      </section>
 
-      <div className="h-8" />
 
       <section className="panel" id="about">
         <div className="panel-header">
           <h2>About</h2>
         </div>
         <div className="panel-body">
-          <ul className="about-list">
-            <li><strong>Interests:</strong> Digital Healthcare, Mathematics, and Quantum Computing.</li>
-            <li><strong>Portfolio:</strong> A hub for projects, research notes, math writing, and personal records.</li>
-            <li><strong>Writing:</strong> Notes, reviews, and diary entries are separated so each section has a clear role.</li>
-            <li><strong>Mission:</strong> Build computational tools for complex real-world problems.</li>
-          </ul>
+          <div className="text-muted leading-relaxed space-y-4">
+            <p>
+              I am an undergraduate student based in South Korea, currently exploring the intersections of rigorous mathematics, digital healthcare, and quantum algorithms. This site acts as a central hub for my ongoing academic journey.
+            </p>
+            <p>
+              My primary focus lies in developing computational tools and formal models to address complex real-world biological systems and quantum information processing. By documenting my research notes, mathematical formalizations, and engineering projects across dedicated archives, I aim to maintain a living record of my intellectual progress.
+            </p>
+          </div>
         </div>
       </section>
 
