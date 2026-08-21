@@ -15,7 +15,7 @@ export default function AboutPage() {
         {
           status: 'Community',
           title: '수학의 즐거움 (Enjoying Math)',
-          description: 'Active participant in the Enjoying Math community across From Basics to Graduate Math (Cohort 7) and Math for Professionals & Non-STEM (Seminar 4.5).',
+          description: 'Active participant in the Enjoying Math community across From Basics to Graduate Math and Math for Professionals & Non-STEM.',
         },
         {
           status: 'Research Focus',
