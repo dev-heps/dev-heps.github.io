@@ -70,8 +70,6 @@ export default function Home() {
           <div className="profile-rule" aria-hidden="true" />
           <p className="profile-meta">
             <span>Undergraduate Student</span>
-            <span className="profile-meta-sep" aria-hidden="true">·</span>
-            <span>{SITE.location}</span>
           </p>
         </section>
       </ProfileHeroCanvas>
