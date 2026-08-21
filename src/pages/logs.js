@@ -26,19 +26,19 @@ export default function LogsPage() {
         <div className="panel-header flex flex-wrap items-center justify-between gap-3">
           <h2>Archive Feed</h2>
           {/* Tag Filter Pills */}
-          <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs" aria-label="Filter logs by tag">
+          <div className="flex flex-wrap items-center gap-2 font-mono text-xs" aria-label="Filter logs by tag">
             {LOG_TAGS.map((tag) => (
               <button
                 key={tag}
                 onClick={() => setActiveTag(tag)}
-                className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+                className={`px-4 py-1.5 rounded-full transition-all duration-300 cursor-pointer flex items-center gap-2 ${
                   activeTag === tag
-                    ? 'bg-zinc-900 text-white font-semibold shadow-xs'
-                    : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-600'
+                    ? 'bg-zinc-900 text-white shadow-md ring-2 ring-zinc-900/20'
+                    : 'bg-zinc-50 border border-zinc-200 hover:bg-zinc-100 text-zinc-600 hover:text-zinc-900'
                 }`}
               >
                 {tag}
-                <span className="ml-1.5 opacity-60">
+                <span className={`px-1.5 py-0.5 rounded-full text-[10px] ${activeTag === tag ? 'bg-zinc-800 text-zinc-300' : 'bg-zinc-200 text-zinc-500'}`}>
                   {tag === 'All' ? ALL_LOGS.length : ALL_LOGS.filter((l) => l.tag === tag).length}
                 </span>
               </button>
@@ -46,20 +46,46 @@ export default function LogsPage() {
           </div>
         </div>
 
-        <div className="panel-body grid gap-4">
-          {filteredLogs.map((log) => (
-            <article key={log.id} className="project-card transition-all">
-              <div className="flex items-center justify-between gap-2">
-                <p className="font-mono text-xs uppercase text-muted">{log.status}</p>
-                <span className="font-mono text-xs text-zinc-400">{log.date}</span>
-              </div>
-              <h3 className="mt-2 text-base font-semibold text-fg">{log.title}</h3>
-              <div className="mt-3 text-sm text-muted">{log.content}</div>
-            </article>
-          ))}
-
-          {filteredLogs.length === 0 && (
-            <div className="p-8 text-center text-sm font-mono text-zinc-400">
+        <div className="panel-body mt-6">
+          {filteredLogs.length > 0 ? (
+            <div className="relative border-l border-zinc-200 ml-4 md:ml-6 pb-4">
+              {filteredLogs.map((log, idx) => (
+                <div key={log.id} className={`relative pl-8 md:pl-10 ${idx === filteredLogs.length - 1 ? 'mb-0' : 'mb-10'}`}>
+                  {/* Timeline Glowing Dot */}
+                  <span className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-zinc-400 ring-4 ring-white" />
+                  
+                  {/* Glassmorphism Card */}
+                  <article className="group relative p-5 rounded-2xl border border-zinc-200/60 bg-white/40 backdrop-blur-md shadow-sm hover:shadow-md hover:border-zinc-300 hover:-translate-y-1 transition-all duration-300 ease-out">
+                    <div className="flex flex-wrap items-center justify-between gap-3 mb-3">
+                      <div className="flex items-center gap-3">
+                        <span className="font-mono text-xs font-medium text-zinc-500">{log.date}</span>
+                        {log.tag && (
+                          <span className="px-2 py-0.5 rounded-full bg-zinc-100 text-[10px] font-mono text-zinc-600 border border-zinc-200">
+                            {log.tag}
+                          </span>
+                        )}
+                      </div>
+                      <span className={`font-mono text-[10px] uppercase tracking-wider px-2 py-1 rounded-md ${
+                        log.status === 'Completed' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' :
+                        log.status === 'In Progress' ? 'bg-blue-50 text-blue-600 border border-blue-100' :
+                        'bg-zinc-100 text-zinc-500 border border-zinc-200'
+                      }`}>
+                        {log.status}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-lg font-bold text-zinc-800 group-hover:text-zinc-950 transition-colors mb-2">
+                      {log.title}
+                    </h3>
+                    <div className="text-sm text-zinc-600 leading-relaxed prose prose-sm max-w-none">
+                      {log.content}
+                    </div>
+                  </article>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="p-12 text-center text-sm font-mono text-zinc-400 border border-dashed border-zinc-200 rounded-2xl bg-zinc-50/50">
               No logs found for tag &quot;{activeTag}&quot;.
             </div>
           )}

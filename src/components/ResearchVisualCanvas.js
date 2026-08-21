@@ -1,11 +1,11 @@
-﻿import { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 /**
  * ResearchVisualCanvas
  * High-performance, lightweight interactive Canvas 2D visualizer
- * Modes: 'lorenz' (Chaos/Math), 'bloch' (Quantum), 'biology' (Biomedical Wave)
+ * Modes: 'proof' (Math/Logic), 'quantum' (Quantum Tensor/Circuit), 'biology' (Lotka-Volterra)
  */
-export default function ResearchVisualCanvas({ mode = 'lorenz', className = '' }) {
+export default function ResearchVisualCanvas({ mode = 'proof', className = '' }) {
   const canvasRef = useRef(null)
   const containerRef = useRef(null)
   const animRef = useRef(null)
@@ -21,26 +21,7 @@ export default function ResearchVisualCanvas({ mode = 'lorenz', className = '' }
 
     let width = 0
     let height = 0
-    let rotX = 0.3
-    let rotY = 0.4
     let frame = 0
-
-    // Lorenz Attractor points precomputation
-    let lorenzPoints = []
-    if (mode === 'lorenz') {
-      let x = 0.1, y = 0, z = 0
-      const sigma = 10, rho = 28, beta = 8 / 3
-      const dt = 0.008
-      for (let i = 0; i < 1800; i++) {
-        const dx = sigma * (y - x) * dt
-        const dy = (x * (rho - z) - y) * dt
-        const dz = (x * y - beta * z) * dt
-        x += dx
-        y += dy
-        z += dz
-        lorenzPoints.push({ x: x * 4.2, y: y * 4.2, z: (z - 25) * 4.2 })
-      }
-    }
 
     const resize = () => {
       const rect = container.getBoundingClientRect()
@@ -61,139 +42,175 @@ export default function ResearchVisualCanvas({ mode = 'lorenz', className = '' }
     container.addEventListener('mouseenter', onMouseEnter)
     container.addEventListener('mouseleave', onMouseLeave)
 
+    // Data structures for modes
+    // 1. Proof Tree (mode: 'proof')
+    const proofNodes = [
+      { id: 0, x: 0.5, y: 0.15, deps: [] },
+      { id: 1, x: 0.3, y: 0.4, deps: [0] },
+      { id: 2, x: 0.7, y: 0.4, deps: [0] },
+      { id: 3, x: 0.2, y: 0.7, deps: [1] },
+      { id: 4, x: 0.5, y: 0.7, deps: [1, 2] },
+      { id: 5, x: 0.8, y: 0.7, deps: [2] },
+    ]
+
+    // 2. Quantum Tensor Network (mode: 'quantum')
+    const tensorNodes = []
+    const cols = 4, rows = 2
+    for (let i = 0; i < cols; i++) {
+      for (let j = 0; j < rows; j++) {
+        tensorNodes.push({ x: (i + 1) / (cols + 1), y: (j + 1) / (rows + 1) })
+      }
+    }
+
     const draw = () => {
       frame++
       ctx.clearRect(0, 0, width, height)
+      
+      const speed = isHoveredRef.current ? 1.5 : 0.5
+      const t = frame * speed
 
-      const cx = width / 2
-      const cy = height / 2
-      const speed = isHoveredRef.current ? 0.02 : 0.006
-
-      // ── MODE 1: LORENZ ATTRACTOR (Mathematics) ────────────────────────
-      if (mode === 'lorenz') {
-        rotY += speed
-        rotX += speed * 0.4
-
-        const cosY = Math.cos(rotY), sinY = Math.sin(rotY)
-        const cosX = Math.cos(rotX), sinX = Math.sin(rotX)
-
-        ctx.lineWidth = 1.1
-        ctx.strokeStyle = isHoveredRef.current ? 'rgba(59, 130, 246, 0.75)' : 'rgba(9, 9, 11, 0.35)'
-        ctx.beginPath()
-
-        for (let i = 0; i < lorenzPoints.length; i += 2) {
-          const p = lorenzPoints[i]
-          let x1 = p.x * cosY - p.z * sinY
-          let z1 = p.x * sinY + p.z * cosY
-          let y1 = p.y * cosX - z1 * sinX
-          let z2 = p.y * sinX + z1 * cosX
-
-          const scale = 220 / (220 + z2)
-          const px = cx + x1 * scale
-          const py = cy + y1 * scale
-
-          if (i === 0) ctx.moveTo(px, py)
-          else ctx.lineTo(px, py)
-        }
-        ctx.stroke()
-      }
-
-      // ── MODE 2: BLOCH SPHERE (Quantum Computing) ─────────────────────
-      else if (mode === 'bloch') {
-        rotY += speed
-        rotX = 0.35
-
-        const radius = Math.min(width, height) * 0.36
-        const cosY = Math.cos(rotY), sinY = Math.sin(rotY)
-        const cosX = Math.cos(rotX), sinX = Math.sin(rotX)
-
-        const project = (x, y, z) => {
-          let x1 = x * cosY - z * sinY
-          let z1 = x * sinY + z * cosY
-          let y1 = y * cosX - z1 * sinX
-          let z2 = y * sinX + z1 * cosX
-          return { px: cx + x1, py: cy + y1, z: z2 }
-        }
-
-        ctx.strokeStyle = 'rgba(9, 9, 11, 0.15)'
-        ctx.lineWidth = 1
-        ctx.beginPath()
-        ctx.arc(cx, cy, radius, 0, Math.PI * 2)
-        ctx.stroke()
-
-        ctx.beginPath()
-        ctx.strokeStyle = 'rgba(9, 9, 11, 0.25)'
-        for (let a = 0; a <= Math.PI * 2; a += 0.1) {
-          const pt = project(Math.cos(a) * radius, 0, Math.sin(a) * radius)
-          if (a === 0) ctx.moveTo(pt.px, pt.py)
-          else ctx.lineTo(pt.px, pt.py)
-        }
-        ctx.stroke()
-
-        ;[0, Math.PI / 2].forEach((offset) => {
-          ctx.beginPath()
-          ctx.strokeStyle = 'rgba(9, 9, 11, 0.12)'
-          for (let a = 0; a <= Math.PI * 2; a += 0.1) {
-            const pt = project(Math.cos(a + offset) * radius, Math.sin(a) * radius, Math.sin(a + offset) * radius)
-            if (a === 0) ctx.moveTo(pt.px, pt.py)
-            else ctx.lineTo(pt.px, pt.py)
-          }
-          ctx.stroke()
+      // ── MODE 1: FORMAL PROOF TREE (Mathematics) ────────────────────────
+      if (mode === 'proof') {
+        ctx.lineWidth = 1.5
+        
+        // Draw edges
+        proofNodes.forEach(node => {
+          node.deps.forEach(depId => {
+            const dep = proofNodes[depId]
+            
+            // Edge pulse animation
+            const dist = Math.abs(node.y - dep.y)
+            const pulse = (t * 0.02 - dep.y) % 1.5
+            const isActive = pulse > 0 && pulse < dist + 0.2
+            
+            ctx.beginPath()
+            ctx.strokeStyle = isActive ? 'rgba(37, 99, 235, 0.6)' : 'rgba(9, 9, 11, 0.1)'
+            ctx.moveTo(dep.x * width, dep.y * height)
+            ctx.lineTo(node.x * width, node.y * height)
+            ctx.stroke()
+          })
         })
 
-        ctx.lineWidth = 1.2
-        ctx.strokeStyle = 'rgba(9, 9, 11, 0.3)'
-        const topPole = project(0, -radius * 1.2, 0)
-        const botPole = project(0, radius * 1.2, 0)
-        ctx.beginPath()
-        ctx.moveTo(topPole.px, topPole.py)
-        ctx.lineTo(botPole.px, botPole.py)
-        ctx.stroke()
-
-        const theta = Math.PI * 0.32 + Math.sin(frame * 0.02) * 0.2
-        const phi = frame * 0.025
-        const vx = Math.sin(theta) * Math.cos(phi) * radius
-        const vy = -Math.cos(theta) * radius
-        const vz = Math.sin(theta) * Math.sin(phi) * radius
-        const stateVec = project(vx, vy, vz)
-
-        ctx.strokeStyle = isHoveredRef.current ? '#2563eb' : '#3b82f6'
-        ctx.lineWidth = 2.2
-        ctx.beginPath()
-        ctx.moveTo(cx, cy)
-        ctx.lineTo(stateVec.px, stateVec.py)
-        ctx.stroke()
-
-        ctx.fillStyle = '#2563eb'
-        ctx.beginPath()
-        ctx.arc(stateVec.px, stateVec.py, 3.5, 0, Math.PI * 2)
-        ctx.fill()
+        // Draw nodes
+        proofNodes.forEach(node => {
+          const verifyT = (t * 0.02 - node.y) % 1.5
+          const isVerified = verifyT > 0 && verifyT < 0.3
+          
+          ctx.beginPath()
+          ctx.fillStyle = isVerified ? '#2563eb' : '#fff'
+          ctx.strokeStyle = isVerified ? '#2563eb' : '#a1a1aa'
+          ctx.arc(node.x * width, node.y * height, isHoveredRef.current ? 5 : 4, 0, Math.PI * 2)
+          ctx.fill()
+          ctx.stroke()
+        })
       }
 
-      // ── MODE 3: BIOMEDICAL HARMONIC WAVE (Mathematical Biology) ──────
+      // ── MODE 2: LOTKA-VOLTERRA VECTOR FIELD (Mathematical Biology) ─────
       else if (mode === 'biology') {
-        const lineCount = 4
-        for (let l = 0; l < lineCount; l++) {
-          ctx.beginPath()
-          const alpha = (1 - l / lineCount) * (isHoveredRef.current ? 0.6 : 0.25)
-          ctx.strokeStyle = l === 0 ? 'rgba(59, 130, 246, 0.8)' : `rgba(9, 9, 11, ${alpha})`
-          ctx.lineWidth = l === 0 ? 1.8 : 0.9
+        const spacing = 20
+        const cols = Math.floor(width / spacing)
+        const rows = Math.floor(height / spacing)
+        
+        ctx.lineWidth = 1
+        
+        // Center of the limit cycle
+        const cx = width / 2
+        const cy = height / 2
 
-          for (let px = 0; px <= width; px += 3) {
-            const xNorm = px / width
-            const wave1 = Math.sin(xNorm * Math.PI * 4 + frame * 0.03 + l * 0.6) * 16
-            const wave2 = Math.cos(xNorm * Math.PI * 8 - frame * 0.02) * 6
-            const pulseCenter = (frame * 0.008) % 1.2 - 0.1
-            const distFromPulse = Math.abs(xNorm - pulseCenter)
-            const ecgSpike = distFromPulse < 0.05 ? Math.sin((xNorm - pulseCenter) / 0.05 * Math.PI) * -30 : 0
-
-            const py = cy + (wave1 + wave2 + ecgSpike) * (1 - l * 0.15)
-
-            if (px === 0) ctx.moveTo(px, py)
-            else ctx.lineTo(px, py)
+        for (let i = 0; i <= cols; i++) {
+          for (let j = 0; j <= rows; j++) {
+            const x = i * spacing
+            const y = j * spacing
+            
+            // Vector field pointing in a swirling pattern (phase portrait)
+            const dx = (y - cy) * 0.5
+            const dy = -(x - cx) * 0.5
+            
+            // Normalize
+            const len = Math.sqrt(dx*dx + dy*dy) || 1
+            const nx = (dx / len) * (spacing * 0.4)
+            const ny = (dy / len) * (spacing * 0.4)
+            
+            // Flow animation
+            const flow = Math.sin(len * 0.05 - t * 0.05)
+            const alpha = 0.1 + (flow + 1) * 0.15
+            
+            ctx.strokeStyle = `rgba(9, 9, 11, ${alpha})`
+            ctx.beginPath()
+            ctx.moveTo(x, y)
+            ctx.lineTo(x + nx, y + ny)
+            ctx.stroke()
+            
+            // Arrow head
+            ctx.fillStyle = ctx.strokeStyle
+            ctx.beginPath()
+            ctx.arc(x + nx, y + ny, 1, 0, Math.PI*2)
+            ctx.fill()
           }
+        }
+
+        // Draw a particle orbiting the limit cycle
+        if (isHoveredRef.current) {
+          const orbitR = Math.min(width, height) * 0.3
+          const px = cx + Math.cos(t * 0.02) * orbitR
+          const py = cy + Math.sin(t * 0.02) * orbitR * 0.6 // Elliptical
+          
+          ctx.fillStyle = '#2563eb'
+          ctx.beginPath()
+          ctx.arc(px, py, 4, 0, Math.PI*2)
+          ctx.fill()
+        }
+      }
+
+      // ── MODE 3: QUANTUM TENSOR NETWORK (Quantum Computing) ──────────────
+      else if (mode === 'quantum') {
+        ctx.lineWidth = 1.5
+        
+        // Draw horizontal bonds
+        ctx.strokeStyle = 'rgba(9, 9, 11, 0.15)'
+        for (let j = 0; j < rows; j++) {
+          ctx.beginPath()
+          ctx.moveTo(tensorNodes[j].x * width - 20, tensorNodes[j].y * height)
+          ctx.lineTo(tensorNodes[cols * rows - rows + j].x * width + 20, tensorNodes[j].y * height)
           ctx.stroke()
         }
+        
+        // Draw vertical bonds
+        for (let i = 0; i < cols; i++) {
+          ctx.beginPath()
+          ctx.moveTo(tensorNodes[i * rows].x * width, tensorNodes[i * rows].y * height - 20)
+          ctx.lineTo(tensorNodes[i * rows + rows - 1].x * width, tensorNodes[i * rows + rows - 1].y * height + 20)
+          ctx.stroke()
+        }
+
+        // Highlight random bonds (Contraction)
+        if (isHoveredRef.current) {
+          const activeCol = Math.floor((t * 0.05) % (cols - 1))
+          const n1 = tensorNodes[activeCol * rows]
+          const n2 = tensorNodes[(activeCol + 1) * rows]
+          
+          ctx.strokeStyle = 'rgba(37, 99, 235, 0.5)'
+          ctx.lineWidth = 3
+          ctx.beginPath()
+          ctx.moveTo(n1.x * width, n1.y * height)
+          ctx.lineTo(n2.x * width, n2.y * height)
+          ctx.stroke()
+        }
+
+        // Draw tensors (nodes)
+        tensorNodes.forEach((node, idx) => {
+          // Node pulsing
+          const pulse = Math.sin(t * 0.05 + idx)
+          const size = 6 + pulse * 2
+          
+          ctx.fillStyle = '#fff'
+          ctx.strokeStyle = '#2563eb'
+          ctx.lineWidth = 2
+          ctx.beginPath()
+          ctx.arc(node.x * width, node.y * height, size, 0, Math.PI * 2)
+          ctx.fill()
+          ctx.stroke()
+        })
       }
 
       animRef.current = requestAnimationFrame(draw)

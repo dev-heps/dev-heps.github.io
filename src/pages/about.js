@@ -1,11 +1,11 @@
-﻿import Link from 'next/link'
+import Link from 'next/link'
 import SiteLayout, { Footer, PageHero } from '@/components/SiteLayout'
 import ResearchVisualCanvas from '@/components/ResearchVisualCanvas'
 import { SITE, SOCIALS } from '@/data/site'
 
 const RESEARCH_PILLARS = [
   {
-    mode: 'lorenz',
+    mode: 'proof',
     tag: 'Pure & Applied Math',
     title: 'Mathematics & Formal Proofs',
     badge: 'Lean 4 / Analysis / Algebra',
@@ -27,7 +27,7 @@ const RESEARCH_PILLARS = [
     ]
   },
   {
-    mode: 'bloch',
+    mode: 'quantum',
     tag: 'Quantum Information',
     title: 'Quantum Computing & Algorithms',
     badge: 'Qubit Dynamics / Quantum Circuits',
@@ -133,32 +133,6 @@ export default function AboutPage() {
           <p>
             This website and its companion archives (<a href="/math/" className="font-mono text-zinc-900 hover:underline">/math</a> and <a href="/research/" className="font-mono text-zinc-900 hover:underline">/research</a>) serve as an open laboratory. Rather than keeping study notes private, I document derivations, formal proofs, and literature reviews publicly to contribute to open scientific discourse.
           </p>
-        </div>
-      </section>
-
-      {/* ── 4. Contact & Collaboration ── */}
-      <section className="panel mb-8">
-        <div className="panel-header">
-          <h2 className="text-xl font-semibold tracking-tight text-fg">Get in Touch</h2>
-        </div>
-        <div className="panel-body flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm">
-          <div className="text-muted leading-relaxed">
-            <p>Always open to collaborative discussions, academic study groups, and research inquiries.</p>
-            <p className="mt-1 font-mono text-zinc-900">Email: <a href={`mailto:${SITE.email}`} className="hover:underline">{SITE.email}</a></p>
-          </div>
-          <div className="flex items-center gap-3 shrink-0">
-            {SOCIALS.map((s) => (
-              <a
-                key={s.name}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-3.5 py-2 text-xs font-mono font-medium rounded-lg border border-edge hover:bg-zinc-100 transition-colors text-zinc-900"
-              >
-                {s.name} ↗
-              </a>
-            ))}
-          </div>
         </div>
       </section>
 
