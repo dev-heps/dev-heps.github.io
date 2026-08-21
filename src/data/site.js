@@ -55,12 +55,6 @@ export const ARCHIVES = [
 
 export const SOCIALS = [
   {
-    name: 'LinkedIn',
-    handle: '@dongwoolee',
-    href: 'https://www.linkedin.com/in/dongwoo-lee-158957408',
-    img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-plain.svg',
-  },
-  {
     name: 'GitHub',
     handle: '@dev-heps',
     href: 'https://github.com/dev-heps',
@@ -71,12 +65,6 @@ export const SOCIALS = [
     handle: '@DongwooLee',
     href: 'https://www.youtube.com/@DongwooLee-ti2kv',
     img: 'https://www.svgrepo.com/show/475700/youtube-color.svg',
-  },
-  {
-    name: 'Instagram',
-    handle: '@dongwoolee',
-    href: 'https://instagram.com',
-    img: 'https://www.svgrepo.com/show/452229/instagram-1.svg',
   },
 ]
 
