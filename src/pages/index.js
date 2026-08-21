@@ -36,44 +36,44 @@ const Icons = {
 export default function Home() {
   return (
     <SiteLayout active="portfolio">
-      <ProfileHeroCanvas className="profile-section-wrap">
-        <section className="profile-hero">
-          <h1 className="profile-name">{SITE.name}</h1>
-          <div className="profile-rule" aria-hidden="true" />
-          <p className="profile-meta">
-            <span>Undergraduate Student</span>
-          </p>
+      <div className="hero-card-unit">
+        <ProfileHeroCanvas className="profile-section-wrap">
+          <section className="profile-hero">
+            <h1 className="profile-name">{SITE.name}</h1>
+            <div className="profile-rule" aria-hidden="true" />
+            <p className="profile-meta">
+              <span>Undergraduate Student</span>
+            </p>
+          </section>
+        </ProfileHeroCanvas>
+
+        <section className="panel profile-info-panel">
+          <div className="panel-body space-y-3">
+            <div className="info-row">
+              <div className="info-icon">{Icons.book}</div>
+              <p>Digital Healthcare / Mathematics / Quantum Computing</p>
+            </div>
+            <div className="grid gap-x-12 gap-y-3 sm:grid-cols-2">
+              <div className="info-row">
+                <div className="info-icon">{Icons.pin}</div>
+                <p>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Dongtan+Station" target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
+                    {SITE.location}
+                  </a>
+                </p>
+              </div>
+              <div className="info-row">
+                <div className="info-icon">{Icons.mail}</div>
+                <p>
+                  <a href={`mailto:${SITE.email}`} className="underline-offset-4 hover:underline">
+                    {SITE.email}
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
-      </ProfileHeroCanvas>
-
-      <section className="panel">
-        <div className="panel-body space-y-3">
-          <div className="info-row">
-            <div className="info-icon">{Icons.book}</div>
-            <p>Digital Healthcare / Mathematics / Quantum Computing</p>
-          </div>
-          <div className="grid gap-x-12 gap-y-3 sm:grid-cols-2">
-            <div className="info-row">
-              <div className="info-icon">{Icons.pin}</div>
-              <p>
-                <a href="https://www.google.com/maps/search/?api=1&query=Dongtan+Station" target="_blank" rel="noopener noreferrer" className="underline-offset-4 hover:underline">
-                  {SITE.location}
-                </a>
-              </p>
-            </div>
-            <div className="info-row">
-              <div className="info-icon">{Icons.mail}</div>
-              <p>
-                <a href={`mailto:${SITE.email}`} className="underline-offset-4 hover:underline">
-                  {SITE.email}
-                </a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="h-8" />
+      </div>
 
       <section className="panel">
         <h2 className="sr-only">Social Links</h2>

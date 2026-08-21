@@ -40,7 +40,7 @@ export default function SiteLayout({ active = 'portfolio', title = SITE.title, d
         </div>
       </header>
 
-      <main className="overflow-x-hidden px-4">
+      <main className="overflow-x-hidden px-4 pt-8 sm:pt-10 pb-16">
         <div className="mx-auto max-w-4xl">{children}</div>
       </main>
     </>
