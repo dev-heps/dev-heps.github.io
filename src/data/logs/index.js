@@ -5,4 +5,6 @@ export const ALL_LOGS = [
   ...logs202608,
 ].sort((a, b) => new Date(b.date) - new Date(a.date))
 
-export const LOG_TAGS = ['All', 'Daily Log', 'Enjoying Math']
+// Dynamically extract unique tags from logs
+const uniqueTags = Array.from(new Set(ALL_LOGS.map((l) => l.tag).filter(Boolean)))
+export const LOG_TAGS = ['All', ...uniqueTags]

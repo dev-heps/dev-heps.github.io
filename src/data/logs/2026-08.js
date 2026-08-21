@@ -35,28 +35,4 @@ export const logs202608 = [
       </div>
     ),
   },
-  {
-    id: 'from-basics-to-grad-math',
-    date: '2026-08-20',
-    tag: 'Enjoying Math',
-    status: 'Enjoying Math',
-    title: 'From Basics to Graduate Math',
-    content: (
-      <p className="text-sm text-muted">
-        기초부터 시작하는 대학원 수학: 집합론, 해석개론, 위상수학, 선형대수, 추상대수, 다변수해석, 측도론으로 이어지는 핵심 증명 및 과제 풀이 기록.
-      </p>
-    ),
-  },
-  {
-    id: 'math-for-professionals-non-stem',
-    date: '2026-08-19',
-    tag: 'Enjoying Math',
-    status: 'Enjoying Math',
-    title: 'Math for Professionals & Non-STEM',
-    content: (
-      <p className="text-sm text-muted">
-        직장인과 문과생들을 위한 수학: 수학적 세계관을 직관적으로 조망하고 엄밀함과 직관의 균형을 체화하는 발췌 세미나 기록.
-      </p>
-    ),
-  },
 ]
