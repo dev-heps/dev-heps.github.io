@@ -15,7 +15,7 @@ export default function AboutPage() {
         {
           status: 'Community',
           title: '수학의 즐거움 (Enjoying Math)',
-          description: 'Active participant across multiple study cohorts: 기초부터 대학원 수학(7기), 일변수 미적분학(2기), 증명 기초(3기), 양자컴퓨팅 수학, 직장인·문과생 수학(4.5기 발췌반).',
+          description: 'Active participant across multiple study cohorts: From Basics to Graduate Math (Cohort 7), Math for Professionals & Non-STEM (Seminar 4.5), Single Variable Calculus (Cohort 2), Foundations of Proofs (Cohort 3), and Quantum Math Track.',
         },
         {
           status: 'Research Focus',
