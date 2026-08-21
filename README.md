@@ -5,7 +5,7 @@ Welcome to the personal portfolio repository of **Dongwoo Lee**.
 This repository contains the source code for my digital portfolio, built with Next.js and Tailwind CSS. It highlights my academic and professional work across various disciplines, including Digital Healthcare, Mathematical Biology, and Quantum Computing.
 
 ## 🚀 Live Site
-[https://dev-heps.github.io](https://dev-heps.github.io)
+[https://dwlee.github.io](https://dwlee.github.io)
 
 ## 🧑‍🔬 About Me
 I am an undergraduate student based in South Korea. My mission is to translate complex biological systems into mathematical frameworks, and explore their solutions through computation to drive real-world impact.
@@ -26,8 +26,8 @@ I am an undergraduate student based in South Korea. My mission is to translate c
 First, clone the repository and install the dependencies:
 
 ```bash
-git clone https://github.com/dev-heps/dev-heps.github.io.git
-cd dev-heps.github.io
+git clone https://github.com/dwlee/dwlee.github.io.git
+cd dwlee.github.io
 npm install
 ```
 

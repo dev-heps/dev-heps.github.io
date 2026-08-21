@@ -1,6 +1,6 @@
 # Agent Notes
 
-This repository is the main portfolio hub for `https://dev-heps.github.io/`.
+This repository is the main portfolio hub for `https://dwlee.github.io/`.
 
 ## Purpose
 
@@ -8,9 +8,9 @@ This repository is the main portfolio hub for `https://dev-heps.github.io/`.
 - Keep section names consistent across navigation, page titles, and archive cards.
 - Internal portfolio shells live here: `About`, `Notes`, `Reviews`, and `Diary`.
 - External archives live in separate repositories and are linked from this site:
-  - `research-notes`: `https://dev-heps.github.io/research-notes/`
-  - `math-archive`: `https://dev-heps.github.io/math-archive/`
-  - `projects`: `https://dev-heps.github.io/projects/`
+  - `research-notes`: `https://dwlee.github.io/research-notes/`
+  - `math-archive`: `https://dwlee.github.io/math-archive/`
+  - `projects`: `https://dwlee.github.io/projects/`
 
 ## Structure
 
