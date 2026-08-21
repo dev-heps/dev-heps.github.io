@@ -15,7 +15,7 @@ export default function SectionPage({ active, title, description, items = [], pl
             <article key={item.title} className="project-card">
               <p className="font-mono text-xs uppercase text-muted">{item.status}</p>
               <h3 className="mt-2 text-base font-semibold text-fg">{item.title}</h3>
-              <p className="mt-2 text-sm text-muted">{item.description}</p>
+              <div className="mt-2 text-sm text-muted">{item.description}</div>
             </article>
           ))}
         </div>
