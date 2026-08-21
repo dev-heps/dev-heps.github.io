@@ -2,6 +2,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import SiteLayout, { Footer } from '@/components/SiteLayout'
 import { ARCHIVES, LANGUAGES, SITE, SOCIALS, TOOLS } from '@/data/site'
+import ProfileHeroCanvas from '@/components/ProfileHeroCanvas'
+import AvatarCanvas from '@/components/AvatarCanvas'
 
 const Icons = {
   book: (
@@ -62,14 +64,16 @@ function ArchiveLink({ archive }) {
 export default function Home() {
   return (
     <SiteLayout active="portfolio">
-      <section className="profile-section">
-        <div className="profile-mark" aria-hidden="true">DW</div>
-        <div className="profile-copy">
-          <p className="page-eyebrow">Portfolio</p>
-          <h1>{SITE.name}</h1>
-          <p>Undergraduate Student</p>
-        </div>
-      </section>
+      <ProfileHeroCanvas className="profile-section-wrap">
+        <section className="profile-section">
+          <AvatarCanvas size={144} />
+          <div className="profile-copy">
+            <p className="page-eyebrow">Portfolio</p>
+            <h1>{SITE.name}</h1>
+            <p>Undergraduate Student</p>
+          </div>
+        </section>
+      </ProfileHeroCanvas>
 
       <section className="panel">
         <div className="panel-body space-y-3">
