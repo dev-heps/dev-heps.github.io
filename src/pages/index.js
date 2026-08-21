@@ -38,7 +38,6 @@ export default function Home() {
     <SiteLayout active="portfolio">
       <ProfileHeroCanvas className="profile-section-wrap">
         <section className="profile-hero">
-          <p className="page-eyebrow">Portfolio</p>
           <h1 className="profile-name">{SITE.name}</h1>
           <div className="profile-rule" aria-hidden="true" />
           <p className="profile-meta">
