@@ -112,10 +112,14 @@ export default function Home() {
         <div className="panel-body">
           <div className="text-muted leading-relaxed space-y-4">
             <p>
-              I am an undergraduate student based in South Korea, currently exploring the intersections of rigorous mathematics, digital healthcare, and quantum algorithms. This site acts as a central hub for my ongoing academic journey.
+              My academic journey has been something of a round trip. Driven by an early love for mathematics, I initially planned to pursue it full-time before pivoting to engineering. After spending three years studying medical AI and computer science, I&apos;ve come full circle and am now rededicating myself to mathematical studies.
             </p>
             <p>
-              My primary focus lies in developing computational tools and formal models to address complex real-world biological systems and quantum information processing. By documenting my research notes, mathematical formalizations, and engineering projects across dedicated archives, I aim to maintain a living record of my intellectual progress.
+              I am also an active member of the{' '}
+              <a href="https://www.youtube.com/@enjoyingmath9346" target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-4 hover:text-black transition-colors">
+                Enjoying Math
+              </a>{' '}
+              community. These days, my main focus is bridging my technical background with my passion for math—and figuring out how to build a sustainable, lifelong career doing what I genuinely enjoy.
             </p>
           </div>
         </div>
