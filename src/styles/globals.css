@@ -83,7 +83,7 @@ html, body {
 
 /* ── Panel header ── */
 .panel-header {
-  padding: 1rem;
+  padding: 1.125rem 1.5rem;
   border-bottom: 1px solid var(--color-edge);
 }
 .panel-header h2 {
@@ -94,7 +94,7 @@ html, body {
 
 /* ── Panel body ── */
 .panel-body {
-  padding: 1rem;
+  padding: 1.25rem 1.5rem;
 }
 
 /* ── Cover pattern ── */
@@ -249,9 +249,9 @@ html, body {
 }
 
 .site-header-inner {
-  max-width: 48rem;
+  max-width: 56rem;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   min-height: 3rem;
   display: flex;
   align-items: center;
@@ -287,7 +287,7 @@ html, body {
 }
 
 .page-hero {
-  padding: 4rem 1rem 2.5rem;
+  padding: 5rem 1.5rem 3rem;
 }
 
 .page-hero h1 {
@@ -325,8 +325,8 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
-  padding: 3rem 1rem;
+  gap: 1.75rem;
+  padding: 3.5rem 1.5rem;
   text-align: center;
 }
 
