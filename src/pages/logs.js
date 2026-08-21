@@ -1,56 +1,85 @@
-import SectionPage from '@/components/SectionPage'
-import MathCanvas from '@/components/MathCanvas'
+import { useState } from 'react'
+import Link from 'next/link'
+import SiteLayout, { Footer, PageHero } from '@/components/SiteLayout'
+import { ALL_LOGS, LOG_TAGS } from '@/data/logs'
 
 export default function LogsPage() {
+  const [activeTag, setActiveTag] = useState('All')
+
+  const filteredLogs = activeTag === 'All'
+    ? ALL_LOGS
+    : ALL_LOGS.filter((log) => log.tag === activeTag)
+
   return (
-    <SectionPage
-      active="logs"
-      title="Study & Dev Logs"
-      description="A living timeline of study progress in the '수학의 즐거움' community, computational experiments, and research reflections."
-      items={[
-        {
-          status: 'Daily Log · 2026-08-21',
-          title: 'Completeness Axiom & Cartesian Coordinate Mapping',
-          description: (
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <h4 className="font-semibold text-fg text-sm">1. Math Study: 실수의 완비성 (Completeness Axiom)</h4>
-                <ul className="list-disc pl-4 space-y-1">
-                  <li>상계(Supremum)와 하계(Infimum)의 존재성 정리를 학습.</li>
-                  <li>실수의 완비성 공리와 코시 수열의 수렴성 간의 동치 관계를 노트에 증명 및 정리함.</li>
-                </ul>
+    <SiteLayout 
+      active="logs" 
+      title="Study & Dev Logs - Dongwoo Lee" 
+      description="A living timeline of study progress in the 'Enjoying Math' community, daily logs, and interactive math canvas visualizations."
+    >
+      <PageHero 
+        eyebrow="Portfolio section" 
+        title="Study & Dev Logs" 
+        description="A living timeline of study progress in the 'Enjoying Math' community, daily logs, and interactive math canvas visualizations." 
+      />
+
+      <section className="panel">
+        <div className="panel-header flex flex-wrap items-center justify-between gap-3">
+          <h2>Archive Feed</h2>
+          {/* Tag Filter Pills */}
+          <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs" aria-label="Filter logs by tag">
+            {LOG_TAGS.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => setActiveTag(tag)}
+                className={`px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+                  activeTag === tag
+                    ? 'bg-zinc-900 text-white font-semibold shadow-xs'
+                    : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-600'
+                }`}
+              >
+                {tag}
+                <span className="ml-1.5 opacity-60">
+                  {tag === 'All' ? ALL_LOGS.length : ALL_LOGS.filter((l) => l.tag === tag).length}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="panel-body grid gap-4">
+          {filteredLogs.map((log) => (
+            <article key={log.id} className="project-card transition-all">
+              <div className="flex items-center justify-between gap-2">
+                <p className="font-mono text-xs uppercase text-muted">{log.status}</p>
+                <span className="font-mono text-xs text-zinc-400">{log.date}</span>
               </div>
-              <div className="space-y-2">
-                <h4 className="font-semibold text-fg text-sm">2. Dev & Visualization: 수학적 좌표계 캔버스 구현</h4>
-                <ul className="list-disc pl-4 space-y-1">
-                  <li>수학적 직교 좌표계(중앙 원점, Y축 상향)를 HTML5 Canvas에 반응형으로 매핑하는 컴포넌트 개발.</li>
-                  <li>
-                    지수 감쇠하는 사인파 {'y = sin(x) * e^(-0.1x)'} 그래프를 동적으로 생성하여 렌더링 검증.
-                  </li>
-                </ul>
-              </div>
-              <MathCanvas 
-                fn={(x) => Math.sin(x) * Math.exp(-0.1 * x)} 
-                color="#2563eb"
-                rangeX={[-10, 10]}
-                rangeY={[-2, 2]}
-                caption="Figure 1: y = sin(x) * e^(-0.1x) plotted on a responsive HTML5 Canvas"
-              />
+              <h3 className="mt-2 text-base font-semibold text-fg">{log.title}</h3>
+              <div className="mt-3 text-sm text-muted">{log.content}</div>
+            </article>
+          ))}
+
+          {filteredLogs.length === 0 && (
+            <div className="p-8 text-center text-sm font-mono text-zinc-400">
+              No logs found for tag &quot;{activeTag}&quot;.
             </div>
-          ),
-        },
-        {
-          status: 'Enjoying Math',
-          title: 'From Basics to Graduate Math',
-          description: '기초부터 시작하는 대학원 수학: 집합론, 해석개론, 위상수학, 선형대수, 추상대수, 다변수해석, 측도론으로 이어지는 핵심 증명 및 과제 풀이 기록.',
-        },
-        {
-          status: 'Enjoying Math',
-          title: 'Math for Professionals & Non-STEM',
-          description: '직장인과 문과생들을 위한 수학: 수학적 세계관을 직관적으로 조망하고 엄밀함과 직관의 균형을 체화하는 발췌 세미나 기록.',
-        },
-      ]}
-      placeholder="새 로그는 스터디·실험 진행에 따라 추가됩니다."
-    />
+          )}
+        </div>
+      </section>
+
+      <div className="h-8" />
+
+      <section className="panel">
+        <div className="panel-body flex flex-col gap-3 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
+          <p>새 로그는 스터디·실험 진행에 따라 월별 모듈에 추가됩니다.</p>
+          <Link href="/" className="font-mono text-xs text-fg hover:underline underline-offset-4">
+            Back to Portfolio
+          </Link>
+        </div>
+      </section>
+
+      <div className="h-8" />
+      <Footer />
+      <div className="h-12" />
+    </SiteLayout>
   )
 }

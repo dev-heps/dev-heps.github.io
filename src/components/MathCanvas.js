@@ -1,9 +1,33 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function MathCanvas({ fn, color = '#2563eb', rangeX = [-10, 10], rangeY = [-3, 3], caption = '' }) {
   const canvasRef = useRef(null);
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Lazy loading: only observe and render when within viewport
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
+    if (!isVisible) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -119,12 +143,16 @@ export default function MathCanvas({ fn, color = '#2563eb', rangeX = [-10, 10], 
     return () => {
       window.removeEventListener('resize', resizeCanvas);
     };
-  }, [fn, color, rangeX, rangeY]);
+  }, [isVisible, fn, color, rangeX, rangeY]);
 
   return (
-    <div className="my-4 border border-zinc-200 rounded-xl overflow-hidden bg-zinc-50 p-4">
-      <div className="relative w-full">
-        <canvas ref={canvasRef} className="block w-full border border-zinc-200 rounded-lg bg-white" />
+    <div ref={containerRef} className="my-4 border border-zinc-200 rounded-xl overflow-hidden bg-zinc-50 p-4">
+      <div className="relative w-full min-h-[300px] flex items-center justify-center">
+        {isVisible ? (
+          <canvas ref={canvasRef} className="block w-full border border-zinc-200 rounded-lg bg-white" />
+        ) : (
+          <div className="text-xs font-mono text-zinc-400">Loading Canvas...</div>
+        )}
       </div>
       {caption && (
         <p className="mt-2 text-center text-xs font-mono text-zinc-400">
