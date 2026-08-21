@@ -15,7 +15,7 @@ export default function AboutPage() {
         {
           status: 'Community',
           title: '수학의 즐거움 (Enjoying Math)',
-          description: 'Active participant across multiple study cohorts: From Basics to Graduate Math (Cohort 7), Math for Professionals & Non-STEM (Seminar 4.5), Single Variable Calculus (Cohort 2), Foundations of Proofs (Cohort 3), and Quantum Math Track.',
+          description: 'Active participant in the Enjoying Math community across From Basics to Graduate Math (Cohort 7) and Math for Professionals & Non-STEM (Seminar 4.5).',
         },
         {
           status: 'Research Focus',
