@@ -69,10 +69,9 @@ export default function LogsPage() {
       <div className="h-8" />
 
       <section className="panel">
-        <div className="panel-body flex flex-col gap-3 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>새 로그는 스터디·실험 진행에 따라 월별 모듈에 추가됩니다.</p>
+        <div className="panel-body flex justify-end text-sm text-muted">
           <Link href="/" className="font-mono text-xs text-fg hover:underline underline-offset-4">
-            Back to Portfolio
+            ← Back to Portfolio
           </Link>
         </div>
       </section>
