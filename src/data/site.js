@@ -27,31 +27,7 @@ export const NAV_ITEMS = [
   { label: 'Notes', href: '/logs', key: 'logs' },
 ]
 
-export const ARCHIVES = [
-  {
-    name: 'Research Notes',
-    href: URLS.research,
-    repo: 'https://github.com/dev-heps/research-notes',
-    description: 'Literature reviews, paper summaries, research questions, and experiment logs.',
-  },
-  {
-    name: 'Math Archive',
-    href: URLS.math,
-    repo: 'https://github.com/dev-heps/math-archive',
-    description: 'Mathematics studies, lecture notes, Lean 4 formalizations, and biological modeling.',
-  },
-  {
-    name: 'Software',
-    href: URLS.projects,
-    repo: 'https://github.com/dev-heps/projects',
-    description: 'Maintained index of tools, software, demos, and source repositories.',
-  },
-  {
-    name: 'Notes & Logs',
-    href: '/logs',
-    description: 'Learning process logs, quick technical notes, and research reflections.',
-  },
-]
+
 
 export const SOCIALS = [
   {
