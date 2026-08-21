@@ -13,13 +13,13 @@ export default function LogsPage() {
   return (
     <SiteLayout 
       active="logs" 
-      title="Study & Dev Logs - Dongwoo Lee" 
-      description="A living timeline of study progress in the 'Enjoying Math' community, daily logs, and interactive math canvas visualizations."
+      title="Notes & Logs - Dongwoo Lee" 
+      description="A living timeline of study progress in the 'Enjoying Math' community, technical notes, and interactive math canvas visualizations."
     >
       <PageHero 
         eyebrow="Portfolio section" 
-        title="Study & Dev Logs" 
-        description="A living timeline of study progress in the 'Enjoying Math' community, daily logs, and interactive math canvas visualizations." 
+        title="Notes & Logs" 
+        description="A living timeline of study progress in the 'Enjoying Math' community, technical notes, and interactive math canvas visualizations." 
       />
 
       <section className="panel">

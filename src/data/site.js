@@ -23,8 +23,8 @@ export const NAV_ITEMS = [
   { label: 'About', href: '/about', key: 'about' },
   { label: 'Research', href: URLS.research, key: 'research', external: true },
   { label: 'Math', href: URLS.math, key: 'math', external: true },
-  { label: 'Projects', href: URLS.projects, key: 'projects', external: true },
-  { label: 'Logs', href: '/logs', key: 'logs' },
+  { label: 'Software', href: URLS.projects, key: 'projects', external: true },
+  { label: 'Notes', href: '/logs', key: 'logs' },
 ]
 
 export const ARCHIVES = [
@@ -41,13 +41,13 @@ export const ARCHIVES = [
     description: 'Mathematics studies, lecture notes, Lean 4 formalizations, and biological modeling.',
   },
   {
-    name: 'Projects',
+    name: 'Software',
     href: URLS.projects,
     repo: 'https://github.com/dev-heps/projects',
     description: 'Maintained index of tools, software, demos, and source repositories.',
   },
   {
-    name: 'Study & Dev Logs',
+    name: 'Notes & Logs',
     href: '/logs',
     description: 'Learning process logs, quick technical notes, and research reflections.',
   },
