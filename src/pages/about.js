@@ -37,6 +37,17 @@ const RESEARCH_PILLARS = [
       { label: 'View Computational Tools →', href: '/projects/' }
     ]
   },
+  {
+    mode: 'computation',
+    tag: 'Computational Science',
+    title: 'Computational Mathematics & Software',
+    badge: 'Julia / Numerical Analysis / Linear Algebra',
+    description:
+      'Leveraging computational tools to simulate and analyze mathematical systems. This encompasses numerical analysis, computational linear algebra, and solving complex differential equations using Julia.',
+    links: [
+      { label: 'View Projects →', href: '/projects/' }
+    ]
+  }
 ]
 
 export default function AboutPage() {

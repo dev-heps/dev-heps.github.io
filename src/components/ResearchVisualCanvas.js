@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react'
 /**
  * ResearchVisualCanvas
  * High-performance, lightweight interactive Canvas 2D visualizer
- * Modes: 'proof' (Math/Logic), 'quantum' (Quantum Tensor/Circuit), 'biology' (Lotka-Volterra)
+ * Modes: 'proof' (Math/Logic), 'quantum' (Quantum Tensor/Circuit), 'biology' (Lotka-Volterra), 'computation' (Numerical Mesh)
  */
 export default function ResearchVisualCanvas({ mode = 'proof', className = '' }) {
   const canvasRef = useRef(null)
@@ -211,6 +211,45 @@ export default function ResearchVisualCanvas({ mode = 'proof', className = '' })
           ctx.fill()
           ctx.stroke()
         })
+      }
+
+      // ── MODE 4: COMPUTATIONAL MATHEMATICS (Numerical Methods) ───────────
+      else if (mode === 'computation') {
+        const spacing = 15
+        const cols = Math.floor(width / spacing)
+        const rows = Math.floor(height / spacing)
+        
+        ctx.lineWidth = 1
+        
+        // Dynamic grid mesh representing numerical discretization
+        for (let i = 0; i <= cols; i++) {
+          for (let j = 0; j <= rows; j++) {
+            const x = i * spacing
+            const y = j * spacing
+            
+            // Add a wave-like deformation (PDE simulation feel)
+            const dx = Math.sin(x * 0.05 + t * 0.05) * 5
+            const dy = Math.cos(y * 0.05 + t * 0.05) * 5
+            
+            ctx.fillStyle = 'rgba(37, 99, 235, 0.4)'
+            ctx.beginPath()
+            ctx.arc(x + dx, y + dy, 1.5, 0, Math.PI * 2)
+            ctx.fill()
+            
+            // Draw connecting lines if hovered to show the "mesh"
+            if (isHoveredRef.current && i < cols && j < rows) {
+              ctx.strokeStyle = 'rgba(37, 99, 235, 0.15)'
+              ctx.beginPath()
+              ctx.moveTo(x + dx, y + dy)
+              ctx.lineTo((i + 1) * spacing + Math.sin((x + spacing) * 0.05 + t * 0.05) * 5, y + dy)
+              ctx.stroke()
+              ctx.beginPath()
+              ctx.moveTo(x + dx, y + dy)
+              ctx.lineTo(x + dx, (j + 1) * spacing + Math.cos((y + spacing) * 0.05 + t * 0.05) * 5)
+              ctx.stroke()
+            }
+          }
+        }
       }
 
       animRef.current = requestAnimationFrame(draw)
