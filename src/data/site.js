@@ -1,10 +1,10 @@
 const isDev = typeof process !== 'undefined' && process.env.NODE_ENV === 'development';
 
 export const URLS = {
-  portfolio: isDev ? 'http://localhost:3000/' : 'https://dwlee.github.io/',
-  research: isDev ? 'http://localhost:3003/' : 'https://dwlee.github.io/research-notes/',
-  math: isDev ? 'http://localhost:3001/math-archive/' : 'https://dwlee.github.io/math-archive/',
-  projects: isDev ? 'http://localhost:3002/' : 'https://dwlee.github.io/projects/',
+  portfolio: isDev ? 'http://localhost:3000/' : 'https://dwlee-log.github.io/',
+  research: isDev ? 'http://localhost:3003/' : 'https://dwlee-log.github.io/research/',
+  math: isDev ? 'http://localhost:3001/math/' : 'https://dwlee-log.github.io/math/',
+  projects: isDev ? 'http://localhost:3002/' : 'https://dwlee-log.github.io/projects/',
 };
 
 export const SITE = {
@@ -14,7 +14,7 @@ export const SITE = {
     'Dongwoo Lee is an undergraduate student interested in digital healthcare, mathematics, and quantum computing.',
   email: 'hepsdata@gmail.com',
   location: 'Dongtan, South Korea',
-  github: 'https://github.com/dwlee',
+  github: 'https://github.com/dwlee-log',
   portfolio: URLS.portfolio,
 }
 
@@ -32,8 +32,8 @@ export const NAV_ITEMS = [
 export const SOCIALS = [
   {
     name: 'GitHub',
-    handle: '@dwlee',
-    href: 'https://github.com/dwlee',
+    handle: '@dwlee-log',
+    href: 'https://github.com/dwlee-log',
     img: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg',
   },
   {
