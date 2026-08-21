@@ -3,7 +3,6 @@ import Image from 'next/image'
 import SiteLayout, { Footer } from '@/components/SiteLayout'
 import { ARCHIVES, LANGUAGES, SITE, SOCIALS, TOOLS } from '@/data/site'
 import ProfileHeroCanvas from '@/components/ProfileHeroCanvas'
-import AvatarCanvas from '@/components/AvatarCanvas'
 
 const Icons = {
   book: (
@@ -65,13 +64,15 @@ export default function Home() {
   return (
     <SiteLayout active="portfolio">
       <ProfileHeroCanvas className="profile-section-wrap">
-        <section className="profile-section">
-          <AvatarCanvas size={144} />
-          <div className="profile-copy">
-            <p className="page-eyebrow">Portfolio</p>
-            <h1>{SITE.name}</h1>
-            <p>Undergraduate Student</p>
-          </div>
+        <section className="profile-hero">
+          <p className="page-eyebrow">Portfolio</p>
+          <h1 className="profile-name">{SITE.name}</h1>
+          <div className="profile-rule" aria-hidden="true" />
+          <p className="profile-meta">
+            <span>Undergraduate Student</span>
+            <span className="profile-meta-sep" aria-hidden="true">·</span>
+            <span>{SITE.location}</span>
+          </p>
         </section>
       </ProfileHeroCanvas>
 
