@@ -19,7 +19,7 @@ export const SITE = {
 }
 
 export const NAV_ITEMS = [
-  { label: 'Portfolio', href: '/', key: 'portfolio' },
+  { label: 'Home', href: '/', key: 'portfolio' },
   { label: 'About', href: '/about', key: 'about' },
   { label: 'Research', href: URLS.research, key: 'research', external: true },
   { label: 'Math', href: URLS.math, key: 'math', external: true },
