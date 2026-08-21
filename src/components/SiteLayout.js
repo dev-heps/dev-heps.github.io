@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { NAV_ITEMS, SITE } from '@/data/site'
+import PageHeroCanvas from '@/components/PageHeroCanvas'
 
 function NavLink({ item, active }) {
   const className = `nav-link ${active === item.key ? 'nav-link-active' : ''}`
@@ -48,11 +49,13 @@ export default function SiteLayout({ active = 'portfolio', title = SITE.title, d
 
 export function PageHero({ eyebrow, title, description }) {
   return (
-    <section className="page-hero">
-      {eyebrow && <p className="page-eyebrow">{eyebrow}</p>}
-      <h1>{title}</h1>
-      <p>{description}</p>
-    </section>
+    <PageHeroCanvas className="page-hero-wrap">
+      <section className="page-hero">
+        {eyebrow && <p className="page-eyebrow">{eyebrow}</p>}
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </section>
+    </PageHeroCanvas>
   )
 }
 
