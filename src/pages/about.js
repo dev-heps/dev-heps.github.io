@@ -5,12 +5,12 @@ export default function AboutPage() {
     <SectionPage
       active="about"
       title="About"
-      description="Undergraduate researcher focusing on digital healthcare, mathematics, and quantum computing."
+      description="Undergraduate student focusing on digital healthcare, mathematics, and quantum computing."
       items={[
         {
           status: 'Profile',
           title: 'Academic Background',
-          description: 'Undergraduate researcher based in South Korea, exploring the intersections of rigorous mathematics, digital healthcare, and quantum algorithms.',
+          description: 'Undergraduate student based in South Korea, exploring the intersections of rigorous mathematics, digital healthcare, and quantum algorithms.',
         },
         {
           status: 'Community',

@@ -8,7 +8,7 @@ This repository contains the source code for my digital portfolio, built with Ne
 [https://dev-heps.github.io](https://dev-heps.github.io)
 
 ## 🧑‍🔬 About Me
-I am a student and researcher based in South Korea. My mission is to translate complex biological systems into mathematical frameworks, and explore their solutions through computation to drive real-world impact.
+I am an undergraduate student based in South Korea. My mission is to translate complex biological systems into mathematical frameworks, and explore their solutions through computation to drive real-world impact.
 
 **Core Interests:**
 - **Digital Healthcare**: Analyzing EHR time-series data and biosignals (ECG/EEG).

@@ -67,7 +67,7 @@ export default function Home() {
         <div className="profile-copy">
           <p className="page-eyebrow">Portfolio</p>
           <h1>{SITE.name}</h1>
-          <p>Undergraduate Researcher</p>
+          <p>Undergraduate Student</p>
         </div>
       </section>
 
