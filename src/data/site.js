@@ -1,10 +1,8 @@
-const isDev = typeof process !== 'undefined' && process.env.NODE_ENV === 'development';
-
 export const URLS = {
-  portfolio: isDev ? 'http://localhost:3000/' : 'https://dev-dwlee.github.io/',
-  research: isDev ? 'http://localhost:3003/' : 'https://dev-dwlee.github.io/research/',
-  math: isDev ? 'http://localhost:3001/math/' : 'https://dev-dwlee.github.io/math/',
-  projects: isDev ? 'http://localhost:3002/' : 'https://dev-dwlee.github.io/projects/',
+  portfolio: '/',
+  research: '/research/',
+  math: '/math/',
+  projects: '/projects/',
 };
 
 export const SITE = {
